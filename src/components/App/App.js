@@ -21,6 +21,8 @@ import IndividualCourse from '../IndividualCourse/IndividualCourse';
 import ContentView from '../ContentView/ContentView';
 import AdminCoursesAvailable from '../AdminCoursesAvailable/AdminCoursesAvailable';
 import CourseCreator from '../CourseCreator/CourseCreator';
+import LessonCreator from '../LessonCreator/LessonCreator';
+import VideoCreator from '../VideoCreator/VideoCreator';
 
 import './App.css';
 
@@ -70,6 +72,10 @@ class App extends Component {
             <Route path="/adminCoursesAvailable" component={AdminCoursesAvailable}/>
 
             <Route path="/courseCreator" component={CourseCreator}/>
+
+            <Route path="/lessonCreator" component={LessonCreator} />
+
+            <Route path="/videoCreator" component={VideoCreator} />
 
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

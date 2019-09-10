@@ -7,8 +7,8 @@ CREATE TABLE "user" (
 	"id" serial NOT NULL,
 	"username" VARCHAR(80) UNIQUE NOT NULL,
 	"password" VARCHAR(1000) NOT NULL,
-	"first_name" VARCHAR(50) NOT NULL,
-	"last_name" VARCHAR(50) NOT NULL,
+	"first_name" VARCHAR(50),
+	"last_name" VARCHAR(50),
 	"administrator" BOOLEAN NOT NULL DEFAULT 'false',
 	CONSTRAINT "user_pk" PRIMARY KEY ("id")
 ) WITH (

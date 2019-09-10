@@ -10,7 +10,11 @@ class CoursesAvailable extends Component {
     render() {
 
         return (
-            <div>In Courses Available</div>
+            <div>
+                <div>In Courses Available</div>
+                <br/>
+                
+            </div>
         )
     }
 }

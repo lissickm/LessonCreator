@@ -20,7 +20,16 @@ class CoursesAvailable extends Component {
             <div>
                 <div>In Courses Available</div>
                 <br/>
-                
+                <div>
+                    {JSON.stringify(this.props.reduxStore.courses)}
+                </div>
+                <ul>
+                    {this.props.reduxStore.courses.map
+                        (course => {
+                            return <li>{course.name}</li>
+                        })
+                    }
+                </ul>
             </div>
         )
     }

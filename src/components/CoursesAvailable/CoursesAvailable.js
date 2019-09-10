@@ -4,8 +4,15 @@ import { connect } from 'react-redux';
 
 class CoursesAvailable extends Component {
 
+    componentDidMount() {
+        this.getCourses();
+    }
 
-
+    getCourses = () => {
+        this.props.dispatch({
+            type: 'FETCH_COURSES'
+        })
+    }
 
     render() {
 

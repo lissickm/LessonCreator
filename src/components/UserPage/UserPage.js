@@ -12,6 +12,7 @@ const UserPage = (props) => (
   
 
   <div>
+    
     <h1 id="welcome">
       Welcome, { props.user.username }!
     </h1>
@@ -19,6 +20,7 @@ const UserPage = (props) => (
     <LogOutButton className="log-in" />
     <br/>
     <button onClick={() => this.handleCoursesButton()}>Check out courses!</button>
+    
   </div>
 );
 

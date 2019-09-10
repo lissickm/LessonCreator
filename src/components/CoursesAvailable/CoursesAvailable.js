@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { userInfo } from 'os';
 
 
 class CoursesAvailable extends Component {
@@ -14,6 +15,8 @@ class CoursesAvailable extends Component {
         })
     }
 
+    
+
     render() {
 
         return (
@@ -21,12 +24,21 @@ class CoursesAvailable extends Component {
                 <div>In Courses Available</div>
                 <br/>
                 <div>
-                    {JSON.stringify(this.props.reduxStore.courses)}
+                    {JSON.stringify(this.props.reduxStore)}
                 </div>
+                <br/>
+                <div>{this.props.reduxStore.user.first_name} {this.props.reduxStore.user.last_name} <button>Logout</button></div>
+
                 <ul>
-                    {this.props.reduxStore.courses.map
-                        (course => {
-                            return <li>{course.name}</li>
+                    {this.props.reduxStore.courses.map  (course => {
+                            return (
+                            <div key={course.id}>
+                                <li>{course.name}</li>
+                                <li>{course.description}</li>
+                                <button>go</button>
+                            </div>
+                            )
+
                         })
                     }
                 </ul>

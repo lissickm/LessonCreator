@@ -7,8 +7,7 @@ import axios from 'axios';
 function* fetchCourses(action) {
     try {
         let response = yield axios.get('api/courses');
-        console.log('saga response: ', response.data);
-
+        
         yield put({
             type: 'ADD_COURSES',
             payload: response.data

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 class IndividualCourse extends Component {
 
+   
+    
     componentDidMount() {
         // this.getCourses();
         this.getLessons();
@@ -24,6 +26,15 @@ class IndividualCourse extends Component {
 
     render() {
 
+        let courseToRender;
+        let courses = this.props.reduxStore.courses;
+        let chosenCourseId = this.props.reduxStore.chosenCourse
+        for (let course of courses) {
+            if (course.id === chosenCourseId) {
+                courseToRender=course.name;
+                console.log(courseToRender);
+            }
+        }
 
         return(
             <div>
@@ -32,6 +43,12 @@ class IndividualCourse extends Component {
                 {JSON.stringify(this.props.reduxStore)}
                 <br/>
                 {JSON.stringify(this.props.reduxStore.individualCourse)}
+
+                {/* {if(this.props.reduxStore.course.id === this.props.reduxStore.chosenCourse) {
+                    return {this.props}
+                }} */}
+
+                <h2>{courseToRender}</h2>
             </div>
             <ul>
                 {this.props.reduxStore.individualCourse.map (lesson => {

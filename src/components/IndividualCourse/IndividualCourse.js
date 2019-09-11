@@ -31,8 +31,18 @@ class IndividualCourse extends Component {
             <div>
                 {JSON.stringify(this.props.reduxStore)}
                 <br/>
-                {JSON.stringify(this.props.reduxStore.chosenCourse)}
+                {JSON.stringify(this.props.reduxStore.individualCourse)}
             </div>
+            <ul>
+                {this.props.reduxStore.individualCourse.map (lesson => {
+                    return(
+                        <div key={lesson.id}>
+                            <li>{lesson.name}</li>
+                            <li onClick={() => this.handleClick(lesson.id)}>{lesson.description}</li>
+                        </div>
+                    )
+                })}
+            </ul>
             </div>
         )
 

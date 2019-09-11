@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 class IndividualCourse extends Component {
 
     componentDidMount() {
+        // this.getCourses();
         this.getLessons();
     }
 
@@ -12,6 +13,7 @@ class IndividualCourse extends Component {
     //         type: 'FETCH_COURSES'
     //     })
     // }
+
     getLessons = () => {
         this.props.dispatch({
             type: 'FETCH_INDIVIDUAL_LESSON',

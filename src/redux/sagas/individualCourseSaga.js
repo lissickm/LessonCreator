@@ -6,7 +6,9 @@ import axios from 'axios';
 
 function* fetchIndividualCourse(action) {
     try {
-        let response = yield axios.get('api/details');
+        console.log('infetchIndividualCourse reducer');
+        let response = yield axios.get(`api/details/${action.payload}`);
+        console.log('saga response: ', response)
 
         yield put({
             type: 'ADD_INDIVIDUAL_COURSE',
@@ -22,7 +24,7 @@ function* fetchIndividualCourse(action) {
 
 
 function* individualCourseSaga() {
-    yield takeEvery('FETCH_INDIVIDUAL_COURSE', fetchIndividualCourse)
+    yield takeEvery('FETCH_INDIVIDUAL_LESSON', fetchIndividualCourse)
 }
 
 export default individualCourseSaga;

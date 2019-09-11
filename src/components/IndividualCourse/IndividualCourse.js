@@ -23,6 +23,15 @@ class IndividualCourse extends Component {
         })
     }
 
+    handleClick = (id) => {
+        console.log('in lesson handle click');
+        this.props.dispatch({
+            type: 'SET_CHOSEN_LESSON_ID',
+            payload: id
+        })
+        this.props.history.push('/content');
+    }
+
 
     render() {
 
@@ -40,13 +49,10 @@ class IndividualCourse extends Component {
             <div>
             <h1>In Individual Course</h1>
             <div>
-                {JSON.stringify(this.props.reduxStore)}
+                {/* {JSON.stringify(this.props.reduxStore)}
                 <br/>
-                {JSON.stringify(this.props.reduxStore.individualCourse)}
+                {JSON.stringify(this.props.reduxStore.individualCourse)} */}
 
-                {/* {if(this.props.reduxStore.course.id === this.props.reduxStore.chosenCourse) {
-                    return {this.props}
-                }} */}
 
                 <h2>{courseToRender}</h2>
             </div>

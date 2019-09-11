@@ -27,6 +27,8 @@ class IndividualCourse extends Component {
             <h1>In Individual Course</h1>
             <div>
                 {JSON.stringify(this.props.reduxStore)}
+                <br/>
+                {JSON.stringify(this.props.reduxStore.chosenCourse)}
             </div>
             </div>
         )

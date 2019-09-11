@@ -4,17 +4,18 @@ import { connect } from 'react-redux';
 class IndividualCourse extends Component {
 
     componentDidMount() {
-        this.getCourses();
+        this.getLessons();
     }
 
-    getCourses = () => {
-        this.props.dispatch({
-            type: 'FETCH_COURSES'
-        })
-    }
+    // getCourses = () => {
+    //     this.props.dispatch({
+    //         type: 'FETCH_COURSES'
+    //     })
+    // }
     getLessons = () => {
         this.props.dispatch({
-            type: 'FETCH_LESSON'
+            type: 'FETCH_INDIVIDUAL_LESSON',
+            payload: this.props.reduxStore.chosenCourse
         })
     }
 

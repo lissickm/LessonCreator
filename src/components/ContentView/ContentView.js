@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import YouTube from 'react-youtube';
 
 class ContentView extends Component {
 
@@ -37,6 +38,7 @@ render() {
     }
 
     let videoDescription = this.props.reduxStore.individualLesson.description;
+    let videoURL = this.props.reduxStore.individualLesson.url;
 
 
 
@@ -46,14 +48,19 @@ render() {
         <h1>In Content View</h1>
             <h2>{courseToRender} - {lessonToRender}</h2>
         <br/>
-        <div>{JSON.stringify(this.props.reduxStore.individualLesson.description)}</div>
-        {/* <h3>{this.props}</h3> */}
+        <div>{videoDescription}</div>
+            <div>{videoURL}</div>
+            
+            <YouTube videoId="MRao7VIBOaQ"/>
+            <YouTube videoId={videoURL}/>
+
+
+        </div>
             
                 
         
         
-        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen='allowFullScreen' ></iframe> */}
-        </div>
+       
     )
 
 

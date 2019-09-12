@@ -6,6 +6,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
+import YouTube from 'react-youtube';
 import {connect} from 'react-redux';
 
 import Nav from '../Nav/Nav';

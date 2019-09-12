@@ -10,7 +10,7 @@ router.get('/:id', (req, res) => {
     const queryText = `SELECT * FROM content WHERE lesson_id=$1`;
     pool.query(queryText, [chosenLessonID])
         .then((result) => {
-            res.send(result.rows);
+            res.send(result.rows[0]);
         })
         .catch((error) => {
             console.log('Error completing SELECT individual lesson query', error);

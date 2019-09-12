@@ -17,7 +17,9 @@ class IndividualCourse extends Component {
     // }
 
     getLessons = () => {
+        console.log('get lessons', this.props.reduxStore.chosenCourse)
         this.props.dispatch({
+            //GETS ALL LESSONS FOR SELECTED COURSE
             type: 'FETCH_INDIVIDUAL_LESSON',
             payload: this.props.reduxStore.chosenCourse
         })

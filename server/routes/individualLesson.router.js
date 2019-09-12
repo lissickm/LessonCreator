@@ -7,6 +7,7 @@ router.get('/:id', (req, res) => {
     console.log('in get route for lesson content', req.params.id);
 
     let chosenLessonID = req.params.id;
+    console.log(chosenLessonID);
     const queryText = `SELECT * FROM content WHERE lesson_id=$1`;
     pool.query(queryText, [chosenLessonID])
         .then((result) => {

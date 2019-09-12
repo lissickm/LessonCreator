@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* fetchIndividualLesson(action) {
     try {
-        console.log('in fetch individual lesson saga');
+        console.log('in fetch individual lesson saga', action.payload);
         let response = yield axios.get(`api/lessons/${action.payload}`);
         console.log('saga response: ', response);
 

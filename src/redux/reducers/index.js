@@ -5,6 +5,7 @@ import user from './userReducer';
 import courses from './coursesReducer';
 import chosenCourse from './chosenCourseIDReducer';
 import individualCourse from'./individualCourseReducer';
+import chosenLessonID from './chosenLessonIDReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   courses, //contains id, name and description of all courses in database
   chosenCourse, //contains the id of the course chosen by the user
   individualCourse, //contains the lesson information of the course chosen by the user
+  chosenLessonID, //contains the lesson ID that was chosen by the user
 });
 
 export default rootReducer;

@@ -17,7 +17,10 @@ class ContentView extends Component {
 render() {
 
     return (
-        <div>In Content View</div>
+        <div>
+        <h1>In Content View</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen='allowfullscreen' ></iframe>
+        </div>
     )
 
 

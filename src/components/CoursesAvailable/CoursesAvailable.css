@@ -1,0 +1,12 @@
+.courseName {
+    list-style-type: none;
+    text-decoration: underline;
+}
+
+.courseDescription {
+   list-style-type: none; 
+}
+
+.editgoButton {
+    margin-bottom: 20px;
+}

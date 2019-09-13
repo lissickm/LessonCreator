@@ -1,0 +1,9 @@
+.lessonName {
+    list-style-type: none;
+    text-decoration: underline;
+}
+
+.lessonDescription {
+   list-style-type: none; 
+   margin-bottom: 25px;
+}

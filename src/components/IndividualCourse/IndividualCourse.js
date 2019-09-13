@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './IndividualCourse.css';
 
 class IndividualCourse extends Component {
 
@@ -34,6 +35,10 @@ class IndividualCourse extends Component {
         this.props.history.push('/content');
     }
 
+    handleBackClick = (id) => {
+        this.props.history.push('/coursesAvailable');
+    }
+
 
     render() {
 
@@ -46,6 +51,10 @@ class IndividualCourse extends Component {
                 console.log(courseToRender);
             }
         }
+
+    let divStyle = {
+        color: 'blue',
+    };
 
         return(
             <div>
@@ -62,12 +71,13 @@ class IndividualCourse extends Component {
                 {this.props.reduxStore.individualCourse.map (lesson => {
                     return(
                         <div key={lesson.id}>
-                            <li>{lesson.name}</li>
-                            <li onClick={() => this.handleClick(lesson.id)}>{lesson.description}</li>
+                            <li className="lessonName">{lesson.name}</li>
+                            <li className="lessonDescription" style={divStyle} onClick={() => this.handleClick(lesson.id)}>{lesson.description}</li>
                         </div>
                     )
                 })}
             </ul>
+                <button className="backButton" onClick={() => this.handleBackClick()}>Back to Courses</button>
             </div>
         )
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import YouTube from 'react-youtube';
+import './ContentView.css'
 
 class ContentView extends Component {
 
@@ -48,7 +49,7 @@ class ContentView extends Component {
         let videoDescription = this.props.reduxStore.individualLesson.description;
         let videoURL = this.props.reduxStore.individualLesson.url;
 
-
+        const isAdmin = this.props.reduxStore.user.administrator;
 
 
 
@@ -58,12 +59,19 @@ class ContentView extends Component {
                 <h1>In Content View</h1>
                 <h2>{courseToRender} - {lessonToRender}</h2>
                 <br />
-                <div>{videoDescription}</div>
-                <div>{videoURL}</div>
+
+                <div>
+                    {isAdmin === true && <button>Save</button>}
+                </div>
+                <br/>
+                <h3>{videoDescription}</h3>
+                <br/>
+                {/* <div>{videoURL}</div> */}
 
                 {/* <YouTube videoId="MRao7VIBOaQ"/> */}
-                <YouTube videoId={videoURL} />
-                <button onClick={() => this.handleClick(chosenLessonID)}>Lessons</button>
+                <YouTube className="video" videoId={videoURL} />
+                <br/>
+                <button className="backButton" onClick={() => this.handleClick(chosenLessonID)}>Back to Lessons</button>
 
 
             </div>

@@ -1,9 +1,27 @@
 .lessonName {
     list-style-type: none;
     text-decoration: underline;
+    font-size: 25px;
+    
 }
 
 .lessonDescription {
    list-style-type: none; 
-   margin-bottom: 25px;
+   font-size: 20px;
+   
+}
+
+.displayInline {
+    
+}
+
+.courseName {
+    
+    
+    margin-left: 0px;
+}
+
+.goButton {
+    margin-left: 10px;
+    margin-bottom: 20px;
 }

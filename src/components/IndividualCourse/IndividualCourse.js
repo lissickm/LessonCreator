@@ -52,27 +52,27 @@ class IndividualCourse extends Component {
             }
         }
 
-    let divStyle = {
-        color: 'blue',
-    };
+    
 
         return(
             <div>
-            <h1>In Individual Course</h1>
+            {/* <h1>In Individual Course</h1>
             <div>
-                {/* {JSON.stringify(this.props.reduxStore)}
+                {JSON.stringify(this.props.reduxStore)}
                 <br/>
                 {JSON.stringify(this.props.reduxStore.individualCourse)} */}
 
-
-                <h2>{courseToRender}</h2>
+            <div className="courseName">
+                <h1>{courseToRender}</h1>
             </div>
             <ul>
                 {this.props.reduxStore.individualCourse.map (lesson => {
                     return(
                         <div key={lesson.id}>
                             <li className="lessonName">{lesson.name}</li>
-                            <li className="lessonDescription" style={divStyle} onClick={() => this.handleClick(lesson.id)}>{lesson.description}</li>
+                            <li className="lessonDescription" >{lesson.description}</li>
+                            <button className="goButton" onClick={() => this.handleClick(lesson.id)}>Go</button>
+                           
                         </div>
                     )
                 })}

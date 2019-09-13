@@ -1,10 +1,12 @@
 .courseName {
     list-style-type: none;
     text-decoration: underline;
+    font-size: 25px;
 }
 
 .courseDescription {
    list-style-type: none; 
+   font-size: 20px;
 }
 
 .editgoButton {
@@ -12,5 +14,9 @@
 }
 
 .addCourseButton {
+    margin-left: 40px;
+}
+
+h2 {
     margin-left: 40px;
 }

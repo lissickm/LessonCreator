@@ -56,7 +56,7 @@ class ContentView extends Component {
 
         return (
             <div>
-                <h1>In Content View</h1>
+                
                 <h2>{courseToRender} - {lessonToRender}</h2>
                 <br />
                 {isAdmin === true && <form>

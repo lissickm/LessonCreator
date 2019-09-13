@@ -26,6 +26,7 @@ import LessonCreator from '../LessonCreator/LessonCreator';
 import VideoCreator from '../VideoCreator/VideoCreator';
 
 import './App.css';
+import'./bootstrap copy.css';
 
 class App extends Component {
   componentDidMount () {

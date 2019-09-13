@@ -50,7 +50,7 @@ class CoursesAvailable extends Component {
                 </h2>
                 <br/>
                 <div>
-                    {isAdmin === true && <button onClick={() => this.handleAddCourseClick()}>Add New Course</button>}
+                    {isAdmin === true && <button className="addCourseButton" onClick={() => this.handleAddCourseClick()}>Add New Course</button>}
                 </div>
                 <ul>
                     {this.props.reduxStore.courses.map  (course => {

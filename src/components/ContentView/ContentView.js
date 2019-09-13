@@ -59,17 +59,25 @@ class ContentView extends Component {
                 <h1>In Content View</h1>
                 <h2>{courseToRender} - {lessonToRender}</h2>
                 <br />
-
-                <div>
-                    {isAdmin === true && <button>Save</button>}
-                </div>
+                {isAdmin === true && <form>
+                    <label>
+                        enter video description:
+                        <input type="text" name="name" />
+                    </label>
+                    <br />
+                    <label>
+                        enter a YouTube url:
+                        <input type="text" name="name" />
+                    </label>
+                    <br />
+                    <input type="submit" value="Submit" />
+                </form>}
+                
                 <br/>
-                <h3>{videoDescription}</h3>
+                {isAdmin === false && <h3>{videoDescription}</h3>}
                 <br/>
-                {/* <div>{videoURL}</div> */}
-
-                {/* <YouTube videoId="MRao7VIBOaQ"/> */}
-                <YouTube className="video" videoId={videoURL} />
+               
+                {isAdmin === false && <YouTube className="video" videoId={videoURL} />}
                 <br/>
                 <button className="backButton" onClick={() => this.handleClick(chosenLessonID)}>Back to Lessons</button>
 

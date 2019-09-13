@@ -79,6 +79,18 @@ class ContentView extends Component {
                
                 {isAdmin === false && <YouTube className="video" videoId={videoURL} />}
                 <br/>
+                {isAdmin === false && 
+                    <div className="choices">
+                    <h3>Click a choice for your next video</h3>
+                    <h4>This would be your first choice.</h4>
+                    <button className="goButton">Go</button>
+                    <h4>This would be your second choice.</h4>
+                    <button className="goButton">Go</button>
+                    <h4>This would be you third button</h4>
+                    <button className="goButton">Go</button>
+                    </div>
+                    }
+                <br/>
                 <button className="backButton" onClick={() => this.handleClick(chosenLessonID)}>Back to Lessons</button>
 
 

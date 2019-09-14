@@ -1,16 +1,19 @@
 .courseName {
     list-style-type: none;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-size: 25px;
+    font-weight: bold;
 }
 
 .courseDescription {
    list-style-type: none; 
    font-size: 20px;
+   margin-left: 10px;
 }
 
 .editgoButton {
     margin-bottom: 20px;
+    margin-left: 10px;
 }
 
 .addCourseButton {

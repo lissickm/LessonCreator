@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 class CourseCreator extends Component {
 
     state = {
-        courseName: "",
-        courseDescription: ""
+        name: '',
+        description: ''
     }
 
     handleBackClick = () => {
@@ -20,6 +20,26 @@ class CourseCreator extends Component {
 
             [propertyName]: event.target.value,
 
+        })
+    }
+
+    addNewPlant = event => {
+        event.preventDefault();
+        this.props.dispatch({ type: 'ADD_PLANT', payload: this.state })
+        this.setState({
+            newPlant: {
+                id: this.state.id + 1,
+                name: '',
+            }
+        });
+    }
+
+    addNewCourse = event => {
+        event.preventDefault();
+        this.props.dispatch({ type: 'ADD_NEW_COURSE', payload: this.state})
+        this.setState({
+            name: '',
+            description: ''
         })
     }
 
@@ -39,11 +59,11 @@ class CourseCreator extends Component {
                 <form>
                     <label>
                         Course Name:
-                        <input type="text" value={this.state.courseName} onChange={(event) => {this.handleInputChange('courseName', event)}} />
+                        <input type="text" value={this.state.name} onChange={(event) => {this.handleInputChange('name', event)}} />
                     </label>
                     <label>
                         Course Description:
-                        <input type="text" value={this.state.courseDescription} onChange={(event) => { this.handleInputChange('courseDescription', event) }} />
+                        <input type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>

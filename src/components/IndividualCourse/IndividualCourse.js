@@ -21,7 +21,7 @@ class IndividualCourse extends Component {
         console.log('get lessons', this.props.reduxStore.chosenCourse)
         this.props.dispatch({
             //GETS ALL LESSONS FOR SELECTED COURSE
-            type: 'FETCH_INDIVIDUAL_LESSON',
+            type: 'FETCH_INDIVIDUAL_COURSE',
             payload: this.props.reduxStore.chosenCourse
         })
     }
@@ -48,7 +48,7 @@ class IndividualCourse extends Component {
         for (let course of courses) {
             if (course.id === chosenCourseId) {
                 courseToRender=course.name;
-                console.log(courseToRender);
+                console.log('the individual course name to render is : ', courseToRender);
             }
         }
 

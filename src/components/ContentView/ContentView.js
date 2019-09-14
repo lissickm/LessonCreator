@@ -32,17 +32,18 @@ class ContentView extends Component {
         for (let course of courses) {
             if (course.id === chosenCourseId) {
                 courseToRender = course.name;
-                console.log(courseToRender);
+                console.log('course name to render is: ', courseToRender);
             }
         }
 
         let lessonToRender;
         let lessons = this.props.reduxStore.individualCourse;
         let chosenLessonID = this.props.reduxStore.chosenLessonID
+        console.log('this is the line right before the render lesson name logic runs')
         for (let lesson of lessons) {
             if (lesson.id === chosenLessonID) {
                 lessonToRender = lesson.name;
-                console.log(lessonToRender);
+                console.log('lesson name to render is : ', lessonToRender);
             }
         }
 
@@ -56,7 +57,9 @@ class ContentView extends Component {
 
         return (
             <div>
-                
+                <h1>here is the chosen course id: {JSON.stringify(this.props.reduxStore.chosenCourse)}</h1>
+                <h1>here is the chosen lesson id: {JSON.stringify(this.props.reduxStore.chosenLessonID)}</h1>
+                <h1>here are the chosen lesson options ids: {JSON.stringify(this.props.reduxStore.individualCourse)}</h1>
                 <h2>{courseToRender} - {lessonToRender}</h2>
                 <br />
                 {isAdmin === true && <form>

@@ -23,7 +23,7 @@ function* fetchIndividualCourse(action) {
 
 
 function* individualCourseSaga() {
-    yield takeEvery('FETCH_INDIVIDUAL_LESSON', fetchIndividualCourse)
+    yield takeEvery('FETCH_INDIVIDUAL_COURSE', fetchIndividualCourse)
 }
 
 export default individualCourseSaga;

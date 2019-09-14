@@ -19,7 +19,25 @@ router.get('/:id', (req, res) => {
         });
 });
 
+router.post('/', (req, res) => {
+    const newLesson = req.body;
+    const queryText = `INSERT INTO lesson ("name", "description", "course_id") VALUES ($1, $2, $3)`
 
+
+    const queryValues = [
+        newLesson.name,
+        newLesson.description,
+        newLesson.course_id
+    ]
+
+    pool.query(queryText, queryValues)
+        .then(() => { res.sendStatus(201); })
+        .catch((error) => {
+            console.log('error in completing new lesson query', error);
+            res.sendStatus(500);
+        });
+
+})
 
 
 module.exports = router;

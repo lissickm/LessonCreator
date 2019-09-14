@@ -30,7 +30,8 @@ class CourseCreator extends Component {
         this.props.dispatch({ type: 'ADD_NEW_COURSE', payload: this.state })
         this.setState({
             name: '',
-            description: ''
+            description: '',
+            creator_id: 0
         });
     }
 

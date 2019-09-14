@@ -21,9 +21,19 @@ class LessonCreator extends Component {
             [propertyName]: event.target.value,
         });
         this.setState({
-            course_id: this.props.reduxStore.chosenLessonID
+            course_id: this.props.reduxStore.chosenCourse
         });
     }
+
+    addNewLesson = event => {
+        event.preventDefault();
+        this.props.dispatch({ type: 'ADD_NEW_LESSON', payload: this.state })
+        this.setState({
+            name: '',
+            description: ''
+        });
+    }
+    
 
     render() {
 
@@ -36,7 +46,7 @@ class LessonCreator extends Component {
                 <br/>
                 <p>Please enter the name of your lesson and a description of the topics covered.</p>
                 <br/>
-                <form>
+                <form onSubmit={this.addNewLesson}>
                     <label>
                         Lesson Name:
                         <input type="text" value={this.state.name} onChange={(event) => { this.handleInputChange('name', event) }} />

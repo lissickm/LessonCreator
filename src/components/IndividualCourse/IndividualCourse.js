@@ -39,6 +39,10 @@ class IndividualCourse extends Component {
         this.props.history.push('/coursesAvailable');
     }
 
+    handleAddNewLessonClick = () => {
+        this.props.history.push('/lessonCreator');
+    }
+
 
     render() {
 
@@ -52,7 +56,7 @@ class IndividualCourse extends Component {
             }
         }
 
-    
+        const isAdmin = this.props.reduxStore.user.administrator;
 
         return(
             <div>
@@ -64,6 +68,9 @@ class IndividualCourse extends Component {
 
             <div className="courseName">
                 <h1>{courseToRender}</h1>
+            </div>
+            <div>
+                {isAdmin === true && <button onClick={() => this.handleAddNewLessonClick()}>Add a New Lesson</button>}
             </div>
             <ul>
                 {this.props.reduxStore.individualCourse.map (lesson => {

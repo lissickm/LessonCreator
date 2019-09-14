@@ -5,7 +5,8 @@ class CourseCreator extends Component {
 
     state = {
         name: '',
-        description: ''
+        description: '',
+        creator_id: 0
     }
 
     handleBackClick = () => {
@@ -15,32 +16,22 @@ class CourseCreator extends Component {
     handleInputChange = (propertyName, event) => {
         console.log('in handle name change')
         this.setState({
-
             ...this.state,
-
             [propertyName]: event.target.value,
-
+        })
+        this.setState({
+            creator_id: this.props.reduxStore.user.id
         })
     }
 
-    addNewPlant = event => {
-        event.preventDefault();
-        this.props.dispatch({ type: 'ADD_PLANT', payload: this.state })
-        this.setState({
-            newPlant: {
-                id: this.state.id + 1,
-                name: '',
-            }
-        });
-    }
 
     addNewCourse = event => {
         event.preventDefault();
-        this.props.dispatch({ type: 'ADD_NEW_COURSE', payload: this.state})
+        this.props.dispatch({ type: 'ADD_NEW_COURSE', payload: this.state })
         this.setState({
             name: '',
             description: ''
-        })
+        });
     }
 
 
@@ -56,7 +47,7 @@ class CourseCreator extends Component {
                 {JSON.stringify(this.state)}
                 <p>Please enter the name of your course below. Also enter a detailed description of your course, including all topics covered.</p>
                 <br/>
-                <form>
+                <form onSubmit={this.addNewCourse}>
                     <label>
                         Course Name:
                         <input type="text" value={this.state.name} onChange={(event) => {this.handleInputChange('name', event)}} />

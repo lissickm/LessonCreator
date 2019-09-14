@@ -18,10 +18,10 @@ class CourseCreator extends Component {
         this.setState({
             ...this.state,
             [propertyName]: event.target.value,
-        })
+        });
         this.setState({
             creator_id: this.props.reduxStore.user.id
-        })
+        });
     }
 
 

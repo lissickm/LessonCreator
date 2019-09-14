@@ -13,5 +13,24 @@ router.get('/', (req, res) => {
 });
 
 
+router.post('/', (req, res) => {
+    const newCourse = req.body;
+    const queryText = `INSERT INTO course ("name", "description", "creator_id") VALUES ($1, $2, $3)`
+
+    const queryValues = [
+        newCourse.name,
+        newCourse.description,
+        newCourse.creator_id
+    ]
+
+    pool.query(queryText, queryValues)
+        .then(() => {res.sendStatus(201);})
+        .catch((error) => {
+            console.log('error in completing new course query', error);
+            res.sendStatus(500);   
+        });
+});
+
+
 
 module.exports = router;

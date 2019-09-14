@@ -57,9 +57,7 @@ class ContentView extends Component {
 
         return (
             <div>
-                <h1>here is the chosen course id: {JSON.stringify(this.props.reduxStore.chosenCourse)}</h1>
-                <h1>here is the chosen lesson id: {JSON.stringify(this.props.reduxStore.chosenLessonID)}</h1>
-                <h1>here are the chosen lesson options ids: {JSON.stringify(this.props.reduxStore.individualCourse)}</h1>
+                
                 <h2>{courseToRender} - {lessonToRender}</h2>
                 <br />
                 {isAdmin === true && <form>

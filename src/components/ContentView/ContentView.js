@@ -7,7 +7,8 @@ class ContentView extends Component {
     state = {
         description: '',
         url: '',
-        lesson_id: 0
+        lesson_id: 0,
+        prior_content: 0
     }
 
     componentDidMount() {
@@ -87,7 +88,7 @@ class ContentView extends Component {
                 <br />
                 {JSON.stringify(this.state)}
                 <br/>
-                <h3>Use the form below to edit an existing description and url OR add one that is completely new!</h3>
+                {isAdmin === true && <h3>Use the form below to edit an existing description and url OR add one that is completely new!</h3>}
                 {isAdmin === true && 
                     <form onSubmit={this.addNewContent}>
                     <label>

@@ -4,9 +4,25 @@ import YouTube from 'react-youtube';
 import './ContentView.css'
 
 class ContentView extends Component {
+    state = {
+        description: '',
+        url: '',
+        lesson_id: 0
+    }
 
     componentDidMount() {
         this.getContent();
+    }
+
+    handleInputChange = (propertyName, event) => {
+        console.log('in handle input change')
+        this.setState({
+            ...this.state,
+            [propertyName]: event.target.value,
+        });
+        this.setState({
+            lesson_id: this.props.reduxStore.chosenLessonID
+        });
     }
 
     getContent = () => {
@@ -39,7 +55,7 @@ class ContentView extends Component {
         let lessonToRender;
         let lessons = this.props.reduxStore.individualCourse;
         let chosenLessonID = this.props.reduxStore.chosenLessonID
-        console.log('this is the line right before the render lesson name logic runs')
+        
         for (let lesson of lessons) {
             if (lesson.id === chosenLessonID) {
                 lessonToRender = lesson.name;
@@ -60,15 +76,18 @@ class ContentView extends Component {
                 
                 <h2>{courseToRender} - {lessonToRender}</h2>
                 <br />
+                {JSON.stringify(this.state)}
+                <br/>
+                <h3>Use the form below to edit an existing description and url OR add one that is completely new!</h3>
                 {isAdmin === true && <form>
                     <label>
                         enter video description:
-                        <input type="text" name="name" />
+                        <input type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
                     </label>
                     <br />
                     <label>
                         enter a YouTube url:
-                        <input type="text" name="name" />
+                        <input type="text" value={this.state.url} onChange={(event) => { this.handleInputChange('url', event) }} />
                     </label>
                     <br />
                     <input type="submit" value="Submit" />
@@ -78,7 +97,7 @@ class ContentView extends Component {
                 {isAdmin === false && <h3>{videoDescription}</h3>}
                 <br/>
                
-                {isAdmin === false && <YouTube className="video" videoId={videoURL} />}
+                <YouTube className="video" videoId={videoURL} />
                 <br/>
                 {isAdmin === false && 
                     <div className="choices">

@@ -15,7 +15,7 @@ class LessonCreator extends Component {
     }
 
     handleInputChange = (propertyName, event) => {
-        console.log('in handle name change')
+        console.log('in handle input change')
         this.setState({
             ...this.state,
             [propertyName]: event.target.value,

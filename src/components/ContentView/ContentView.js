@@ -25,6 +25,15 @@ class ContentView extends Component {
         });
     }
 
+    addNewContent = event => {
+        event.preventDefault();
+        this.props.dispatch({ type: 'ADD_NEW_CONTENT', payload: this.state })
+        this.setState({
+            description: '',
+            url: ''
+        });
+    }
+
     getContent = () => {
         console.log('chosen Lesson Id', this.props.reduxStore.chosenLessonID)
         this.props.dispatch({
@@ -79,7 +88,8 @@ class ContentView extends Component {
                 {JSON.stringify(this.state)}
                 <br/>
                 <h3>Use the form below to edit an existing description and url OR add one that is completely new!</h3>
-                {isAdmin === true && <form>
+                {isAdmin === true && 
+                    <form onSubmit={this.addNewContent}>
                     <label>
                         enter video description:
                         <input type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />

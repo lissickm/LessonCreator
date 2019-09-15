@@ -47,8 +47,8 @@ CREATE TABLE "content" (
 	"description" VARCHAR(5000) NOT NULL,
 	"url" VARCHAR(5000) NOT NULL,
 	"lesson_id" integer NOT NULL,
-	"prior_content" integer NOT NULL,
-	"first_content" BOOLEAN NOT NULL DEFAULT 'false',
+	"prior_content" integer,
+	
 	CONSTRAINT "content_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE

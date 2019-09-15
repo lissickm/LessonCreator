@@ -23,6 +23,17 @@ router.post('/', (req, res) => {
 
 })
 
+router.get('/prior/:id', (req, res) => {
+    let priorContentID = req.params.id;
+    const queryText = `SELECT * FROM content WHERE "prior_content"=$1`;
+    pool.query(queryText, [priorContentID])
+        .then((result) => { res.send(result.rows); })
+        .catch((error) => {
+            console.log('Error completing SELECT content query', error);
+            res.sendStatus(500);
+        });
+});
+
 
 
 

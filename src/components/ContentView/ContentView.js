@@ -8,11 +8,12 @@ class ContentView extends Component {
         description: '',
         url: '',
         lesson_id: 0,
-        prior_content: 0
+        prior_content: null
     }
 
     componentDidMount() {
         this.getContent();
+        this.getChoiceVideos();
     }
 
     handleInputChange = (propertyName, event) => {
@@ -39,6 +40,13 @@ class ContentView extends Component {
         console.log('chosen Lesson Id', this.props.reduxStore.chosenLessonID)
         this.props.dispatch({
             type: 'FETCH_INDIVIDUAL_LESSON',
+            payload: this.props.reduxStore.chosenLessonID
+        })
+    }
+
+    getChoiceVideos = () => {
+        this.props.dispatch({
+            type: 'FETCH_CHOICE_VIDEOS',
             payload: this.props.reduxStore.chosenLessonID
         })
     }
@@ -105,22 +113,28 @@ class ContentView extends Component {
                 </form>}
                 
                 <br/>
-                {isAdmin === false && <h3>{videoDescription}</h3>}
+                <h3>{videoDescription}</h3>
                 <br/>
                
                 <YouTube className="video" videoId={videoURL} />
                 <br/>
-                {isAdmin === false && 
+                
                     <div className="choices">
                     <h3>Click a choice for your next video</h3>
-                    <h4>This would be your first choice.</h4>
-                    <button className="goButton">Go</button>
-                    <h4>This would be your second choice.</h4>
-                    <button className="goButton">Go</button>
-                    <h4>This would be you third button</h4>
-                    <button className="goButton">Go</button>
+
+                    <ul>
+                        {this.props.reduxStore.choiceVideos.map(video => {
+                            return (
+                                <div key={video.id}>
+                                    <li>{video.description}<button>Go</button></li>
+                                </div>
+                            )
+                        })}
+                    </ul>
+
+                    
                     </div>
-                    }
+                    
                 <br/>
                 <button className="backButton" onClick={() => this.handleClick(chosenLessonID)}>Back to Lessons</button>
 

@@ -56,6 +56,13 @@ class ContentView extends Component {
         this.props.history.push('/course');
     }
 
+    handleGoClick = (id) => {
+        this.props.dispatch({
+            type: 'SET_CHOSEN_PARENT_VIDEO_ID',
+            payload: id
+        })
+    }
+
 
 
     render() {
@@ -126,7 +133,7 @@ class ContentView extends Component {
                         {this.props.reduxStore.choiceVideos.map(video => {
                             return (
                                 <div key={video.id}>
-                                    <li>{video.description}<button>Go</button></li>
+                                    <li>{video.description}<button onClick={() => this.handleGoClick(video.id)}>Go</button></li>
                                 </div>
                             )
                         })}

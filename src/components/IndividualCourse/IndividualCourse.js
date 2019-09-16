@@ -89,9 +89,10 @@ class IndividualCourse extends Component {
                         <div key={lesson.id}>
                             <li className="lessonName">{lesson.name}</li>
                             <li className="lessonDescription" >{lesson.description}</li>
-                            {isAdmin === false && <button className="goButton" onClick={() => this.handleClick(lesson.id)}>Go</button>}
-                            {isAdmin === true && <button className="goButton" onClick={() => this.handleClick(lesson.id)}>Edit</button>}
+                            <button className="goButton" onClick={() => this.handleClick(lesson.id)}>Go to lesson content</button>
+                            
                             {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>}
+
                            
                         </div>
                     )

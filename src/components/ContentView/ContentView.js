@@ -124,7 +124,7 @@ class ContentView extends Component {
                 <br/>
                 <h3>{videoDescription}</h3>
                 <br/>
-               
+                {isAdmin === true && <button>Delete Video</button>}
                 <YouTube className="video" videoId={videoURL} />
                 <br/>
                 
@@ -140,8 +140,6 @@ class ContentView extends Component {
                             )
                         })}
                     </ul>
-
-                    
                     </div>
                     
                 <br/>

@@ -40,8 +40,6 @@ class CoursesAvailable extends Component {
             type: 'REMOVE_COURSE',
             payload: id
         })
-        
-
     }
 
     

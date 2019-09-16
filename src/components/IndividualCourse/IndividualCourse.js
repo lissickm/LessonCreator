@@ -35,6 +35,17 @@ class IndividualCourse extends Component {
         this.props.history.push('/content');
     }
 
+    handleDeleteClick = (id) => {
+        console.log('in handleDeleteClick');
+        this.props.dispatch({
+            type: 'REMOVE_LESSON',
+            payload: {
+                id: id,
+                course_id: this.props.reduxStore.chosenCourse
+            }
+        })
+    }
+
     handleBackClick = (id) => {
         this.props.history.push('/coursesAvailable');
     }
@@ -80,6 +91,7 @@ class IndividualCourse extends Component {
                             <li className="lessonDescription" >{lesson.description}</li>
                             {isAdmin === false && <button className="goButton" onClick={() => this.handleClick(lesson.id)}>Go</button>}
                             {isAdmin === true && <button className="goButton" onClick={() => this.handleClick(lesson.id)}>Edit</button>}
+                            {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>}
                            
                         </div>
                     )

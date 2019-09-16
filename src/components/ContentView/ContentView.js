@@ -103,6 +103,8 @@ class ContentView extends Component {
                 <br />
                 {JSON.stringify(this.state)}
                 <br/>
+                {/* {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>} */}
+                <br/>
                 {isAdmin === true && <h3>Use the form below to edit an existing description and url OR add one that is completely new!</h3>}
                 {isAdmin === true && 
                     <form onSubmit={this.addNewContent}>

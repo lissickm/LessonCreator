@@ -34,6 +34,16 @@ class CoursesAvailable extends Component {
     //     this.props.history.push('/lessonCreator');
     // }
 
+    handleDeleteClick = (id) => {
+        console.log('in handleDeleteClick');
+        this.props.dispatch({
+            type: 'REMOVE_COURSE',
+            payload: id
+        })
+        
+
+    }
+
     
 
     render() {
@@ -60,7 +70,7 @@ class CoursesAvailable extends Component {
                                 <li className="courseName">{course.name}</li>
                                 <li className="courseDescription">{course.description}</li>
                                     {/* {isAdmin === true && <button onClick={() => this.handleAddLessonClick()}>Add New Lesson</button>} */}
-                                    {isAdmin === true && <button>Delete Course</button>}
+                                    {isAdmin === true && <button onClick={() => this.handleDeleteClick(course.id)}>Delete Course</button>}
                                     {isAdmin ? (<button className="editgoButton" onClick={() => this.handleGoClick(course.id)}>Edit - Add New Lesson</button>) :
                                         <button className="editgoButton" onClick={() => this.handleGoClick(course.id)}>Go</button>}
                                 

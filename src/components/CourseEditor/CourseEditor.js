@@ -6,7 +6,7 @@ class CourseEditor extends Component {
     state = {
         name: '',
         description: '',
-        creator_id: 0
+        course_id: 0
     }
 
 
@@ -22,14 +22,14 @@ class CourseEditor extends Component {
             [propertyName]: event.target.value,
         });
         this.setState({
-            creator_id: this.props.reduxStore.user.id
+            course_id: this.props.reduxStore.chosenCourse
         });
     }
 
 
     editNewCourse = event => {
         event.preventDefault();
-        this.props.dispatch({ type: 'ADD_NEW_COURSE', payload: this.state })
+        this.props.dispatch({ type: 'CHANGE_COURSE_INFORMATION', payload: this.state })
         this.setState({
             name: '',
             description: '',
@@ -43,20 +43,23 @@ class CourseEditor extends Component {
     //     <input type='text' value={this.state.kingdom} placeholder='kingdom' onChange={(event) => { this.handleNameChange('kingdom', event) }} />
     render() {
 
-        let courseToRender;
+        let courseNameToRender;
+        let courseDescriptionToRender;
         let courses = this.props.reduxStore.courses;
         let chosenCourseId = this.props.reduxStore.chosenCourse
         for (let course of courses) {
             if (course.id === chosenCourseId) {
-                courseToRender = course.name;
-                console.log('the individual course name to render is : ', courseToRender);
+                courseNameToRender = course.name;
+                courseDescriptionToRender = course.description;
+                console.log('the individual course name to render is : ', courseNameToRender);
             }
         }
 
         return (
             <div>
                 <h1>Course Editor</h1>
-                <h1>{courseToRender}</h1>
+                <h1>{courseNameToRender}</h1>
+                <h1>{courseDescriptionToRender}</h1>
                 {JSON.stringify(this.state)}
                 <p>Please edit the name of your course below. If needed, also edit the description of your course, including all topics covered.</p>
                 <br />

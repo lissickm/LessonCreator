@@ -11,6 +11,7 @@ import addNewContentSaga from './addNewContentSaga';
 import addChoiceVideosSaga from './addChoiceVideosSaga';
 import deleteCourseSaga from './deleteCourseSaga';
 import deleteLessonSaga from './deleteLessonSaga';
+import editCourseSaga from './editCourseSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -33,5 +34,6 @@ export default function* rootSaga() {
     addChoiceVideosSaga(),
     deleteCourseSaga(),
     deleteLessonSaga(),
+    editCourseSaga(),
   ]);
 }

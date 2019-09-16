@@ -6,7 +6,7 @@ class CourseEditor extends Component {
     state = {
         name: '',
         description: '',
-        course_id: 0
+        id: 0
     }
 
 
@@ -22,18 +22,18 @@ class CourseEditor extends Component {
             [propertyName]: event.target.value,
         });
         this.setState({
-            course_id: this.props.reduxStore.chosenCourse
+            id: this.props.reduxStore.chosenCourse
         });
     }
 
 
     editNewCourse = event => {
-        event.preventDefault();
+        // event.preventDefault();
         this.props.dispatch({ type: 'CHANGE_COURSE_INFORMATION', payload: this.state })
         this.setState({
             name: '',
             description: '',
-            creator_id: 0
+            id: 0
         });
     }
 

@@ -40,5 +40,27 @@ router.delete('/:id', (req, res) => {
     })
 });
 
+router.put('/:id', (req, res) => {
+    console.log('in put route')
+    const courseEdit = req.body;
+    console.log(req.body);
+    const queryText = `UPDATE course
+SET name=$1, description=$2
+WHERE id=$3`;
+
+    const queryValues = [
+        courseEdit.name,
+        courseEdit.description,
+        courseEdit.id
+    ]
+
+    pool.query(queryText, queryValues)
+        .then(() => { res.sendStatus(201); })
+        .catch((error) => {
+            console.log('error in completing course edit query', error);
+            res.sendStatus(500);
+        });
+});
+
 
 module.exports = router;

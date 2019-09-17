@@ -34,6 +34,7 @@ class ContentView extends Component {
             description: '',
             url: ''
         });
+        this.getContent();
     }
 
     getContent = () => {
@@ -105,7 +106,7 @@ class ContentView extends Component {
                 <br/>
                 {/* {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>} */}
                 <br/>
-                {isAdmin === true && <h3>Use the form below to edit an existing description and url OR add one that is completely new!</h3>}
+                {isAdmin === true, videoURL, videoDescription === false  && <h3>Use the form below to edit the description and url.</h3>}
                 {isAdmin === true && 
                     <form onSubmit={this.addNewContent}>
                     <label>
@@ -124,11 +125,11 @@ class ContentView extends Component {
                 <br/>
                 <h3>{videoDescription}</h3>
                 <br/>
-                {isAdmin === true && <button>Delete Video</button>}
-                <YouTube className="video" videoId={videoURL} />
+                {/* {isAdmin === true && <button>Delete Video</button>} */}
+                {videoURL && <YouTube className="video" videoId={videoURL} />}
                 <br/>
                 
-                    <div className="choices">
+                    {/* <div className="choices">
                     <h3>Click a choice for your next video</h3>
 
                     <ul>
@@ -140,7 +141,7 @@ class ContentView extends Component {
                             )
                         })}
                     </ul>
-                    </div>
+                    </div> */}
                     
                 <br/>
                 <button className="backButton" onClick={() => this.handleClick(chosenLessonID)}>Back to Lessons</button>

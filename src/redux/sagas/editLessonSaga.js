@@ -1,7 +1,9 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
-function * editLesson(action) {
+function* editLesson(action) {
+    console.log('in editLesson saga');
+    
     try {
         yield axios.put(`api/lessons/${action.payload.id}`, action.payload);
         

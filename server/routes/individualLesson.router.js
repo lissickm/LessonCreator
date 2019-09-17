@@ -36,8 +36,30 @@ router.post('/', (req, res) => {
             console.log('error in completing new lesson query', error);
             res.sendStatus(500);
         });
-
 })
+
+
+router.put('/:id', (req, res) => {
+    console.log('in put route')
+    const lessonEdit = req.body;
+    console.log(req.body);
+    const queryText = `UPDATE lesson
+SET name=$1, description=$2
+WHERE id=$3`;
+
+    const queryValues = [
+        lessonEdit.name,
+        lessonEdit.description,
+        lessonEdit.id
+    ]
+
+    pool.query(queryText, queryValues)
+        .then(() => { res.sendStatus(201); })
+        .catch((error) => {
+            console.log('error in completing lesson edit query', error);
+            res.sendStatus(500);
+        });
+});
 
 
 module.exports = router;

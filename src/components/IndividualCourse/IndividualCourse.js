@@ -35,6 +35,15 @@ class IndividualCourse extends Component {
         this.props.history.push('/content');
     }
 
+    handleEditClick = (id) => {
+        console.log('in handle edit click')
+        this.props.dispatch({
+            type: 'SET_CHOSEN_LESSON_ID',
+            payload: id
+        })
+        this.props.history.push('/lessonEditor');
+    }
+
     handleDeleteClick = (id) => {
         console.log('in handleDeleteClick');
         this.props.dispatch({
@@ -90,7 +99,7 @@ class IndividualCourse extends Component {
                             <li className="lessonName">{lesson.name}</li>
                             <li className="lessonDescription" >{lesson.description}</li>
                             <button className="goButton" onClick={() => this.handleClick(lesson.id)}>Go to lesson content</button>
-                            
+                            {isAdmin === true && <button onClick={() => this.handleEditClick(lesson.id)}>Edit Lesson</button>}
                             {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>}
 
                            

@@ -23,6 +23,7 @@ import ContentView from '../ContentView/ContentView';
 import AdminCoursesAvailable from '../AdminCoursesAvailable/AdminCoursesAvailable';
 import CourseCreator from '../CourseCreator/CourseCreator';
 import CourseEditor from '../CourseEditor/CourseEditor';
+import LessonEditor from '../LessonEditor/LessonEditor';
 import LessonCreator from '../LessonCreator/LessonCreator';
 import VideoCreator from '../VideoCreator/VideoCreator';
 
@@ -77,6 +78,8 @@ class App extends Component {
             <Route path="/courseCreator" component={CourseCreator}/>
 
             <Route path="/courseEditor" component={CourseEditor} />
+
+            <Route path="/lessonEditor" component={LessonEditor} />
 
             <Route path="/lessonCreator" component={LessonCreator} />
 

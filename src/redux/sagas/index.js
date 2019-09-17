@@ -13,6 +13,7 @@ import deleteCourseSaga from './deleteCourseSaga';
 import deleteLessonSaga from './deleteLessonSaga';
 import editCourseSaga from './editCourseSaga';
 import editLessonSaga from './editLessonSaga';
+import editContentSaga from './editContentSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -37,5 +38,6 @@ export default function* rootSaga() {
     deleteLessonSaga(),
     editCourseSaga(),
     editLessonSaga(),
+    editContentSaga(),
   ]);
 }

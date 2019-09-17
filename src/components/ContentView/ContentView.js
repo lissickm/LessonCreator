@@ -37,6 +37,17 @@ class ContentView extends Component {
         
     }
 
+    editContent = event => {
+        // event.preventDefault();
+        this.props.dispatch({ type: 'CHANGE_CONTENT_INFORMATION', payload: this.state, chosen_lesson_id: this.props.reduxStore.chosenLessonID })
+        this.setState({
+            description: '',
+            url: '',
+            lesson_id: 0,
+            prior_content: null
+        });
+    }
+
     getContent = () => {
         console.log('chosen Lesson Id', this.props.reduxStore.chosenLessonID)
         this.props.dispatch({
@@ -105,10 +116,17 @@ class ContentView extends Component {
                 {JSON.stringify(this.state)}
                 <br/>
                 {/* {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>} */}
+
+                <h3>{videoDescription}</h3>
+                <br />
+                {/* {isAdmin === true && <button>Delete Video</button>} */}
+                {videoURL && <YouTube className="video" videoId={videoURL} />}
+                <br />
                 <br/>
-                {videoURL === false && <h3>Use the form below to edit the description and url.</h3>}
+                {isAdmin, !videoURL, !videoDescription && <h3>Use the form below to ADD a description and url for your video.</h3>}
+                {isAdmin, videoURL, videoDescription && <h3>Use the form below to EDIT a description and url for your video.</h3>}
                 
-                {isAdmin === true && 
+                {isAdmin, !videoURL, !videoDescription  && 
                     <form onSubmit={this.addNewContent}>
                     <label>
                         enter video description:
@@ -122,13 +140,24 @@ class ContentView extends Component {
                     <br />
                     <input type="submit" value="Submit" />
                 </form>}
+
+                {isAdmin, videoURL, videoDescription &&
+                    <form onSubmit={this.editContent}>
+                        <label>
+                            edit video description:
+                        <input type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
+                        </label>
+                        <br />
+                        <label>
+                            edit YouTube url:
+                        <input type="text" value={this.state.url} onChange={(event) => { this.handleInputChange('url', event) }} />
+                        </label>
+                        <br />
+                        <input type="submit" value="Submit" />
+                    </form>}
                 
                 <br/>
-                <h3>{videoDescription}</h3>
-                <br/>
-                {/* {isAdmin === true && <button>Delete Video</button>} */}
-                {videoURL && <YouTube className="video" videoId={videoURL} />}
-                <br/>
+                
                 
                     {/* <div className="choices">
                     <h3>Click a choice for your next video</h3>

@@ -3,10 +3,18 @@ import axios from 'axios';
 
 function* postNewContent(action) {
     try {
-        let response = yield axios.post('api/content', action.payload);
+        yield axios.post('api/content', action.payload);
         yield put({
-            type: 'POST_NEW_CONTENT'
+            type: 'FETCH_INDIVIDUAL_LESSON',
+            payload: action.chosen_lesson_id
         });
+        
+        //FETCH_INDIVIDUAL_LESSON
+        
+        ///???
+        // yield put({
+        //     type: 'POST_NEW_CONTENT'
+        // });
     } catch (error) {
         console.log('error in post new content: ', error)
     }

@@ -29,12 +29,12 @@ class ContentView extends Component {
 
     addNewContent = event => {
         event.preventDefault();
-        this.props.dispatch({ type: 'ADD_NEW_CONTENT', payload: this.state })
+        this.props.dispatch({ type: 'ADD_NEW_CONTENT', payload: this.state, chosen_lesson_id: this.props.reduxStore.chosenLessonID })
         this.setState({
             description: '',
             url: ''
         });
-        this.getContent();
+        
     }
 
     getContent = () => {
@@ -95,7 +95,7 @@ class ContentView extends Component {
         const isAdmin = this.props.reduxStore.user.administrator;
 
 
-
+        // isAdmin === true, videoURL, videoDescription === false && 
 
         return (
             <div>
@@ -106,7 +106,8 @@ class ContentView extends Component {
                 <br/>
                 {/* {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>} */}
                 <br/>
-                {isAdmin === true, videoURL, videoDescription === false  && <h3>Use the form below to edit the description and url.</h3>}
+                {videoURL === false && <h3>Use the form below to edit the description and url.</h3>}
+                
                 {isAdmin === true && 
                     <form onSubmit={this.addNewContent}>
                     <label>

@@ -4,7 +4,7 @@ import axios from 'axios';
 function* sendInfoToReducer(action) {
     try {
         yield put({
-            type: 'ADD_CHOSEN_COURSE_INFO',
+            type: 'ADD_CHOSEN_LESSON_INFO',
             payload: action.payload
         });
     } catch (error) {
@@ -12,8 +12,8 @@ function* sendInfoToReducer(action) {
     }
 
 }
-function* chosenCourseInformationSaga() {
-    yield takeEvery('SET_CHOSEN_COURSE_INFO', sendInfoToReducer)
+function* chosenLessonInformationSaga() {
+    yield takeEvery('SET_CHOSEN_LESSON_INFO', sendInfoToReducer)
 }
 
 export default chosenCourseInformationSaga;

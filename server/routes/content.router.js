@@ -34,6 +34,29 @@ router.get('/prior/:id', (req, res) => {
         });
 });
 
+router.put('/:id', (req, res) => {
+    console.log('in put route')
+    const contentEdit = req.body;
+    const contentID = req.params.id
+    console.log(req.body);
+    const queryText = `UPDATE content
+SET description=$1, url=$2
+WHERE id=$3`;
+
+    const queryValues = [
+        contentEdit.description,
+        contentEdit.url,
+        contentID
+    ]
+
+    pool.query(queryText, queryValues)
+        .then(() => { res.sendStatus(201); })
+        .catch((error) => {
+            console.log('error in completing lesson edit query', error);
+            res.sendStatus(500);
+        });
+});
+
 
 
 

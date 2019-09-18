@@ -39,7 +39,7 @@ class ContentView extends Component {
 
     editContent = event => {
         // event.preventDefault();
-        this.props.dispatch({ type: 'CHANGE_CONTENT_INFORMATION', payload: this.state, chosen_lesson_id: this.props.reduxStore.chosenLessonID })
+        this.props.dispatch({ type: 'CHANGE_CONTENT_INFORMATION', payload: this.state, content_id: this.props.reduxStore.individualLesson.id })
         this.setState({
             description: '',
             url: '',

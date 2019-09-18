@@ -5,7 +5,7 @@ function* editContent(action) {
     console.log('in editContent saga');
 
     try {
-        yield axios.put(`api/content/${action.payload.id}`, action.payload);
+        yield axios.put(`api/content/${action.content_id}`, action.payload);
 
 
     } catch (error) {

@@ -6,6 +6,10 @@ function* editContent(action) {
 
     try {
         yield axios.put(`api/content/${action.content_id}`, action.payload);
+        yield put({
+            type: 'FETCH_INDIVIDUAL_LESSON',
+            payload: action.payload.lesson_id
+        });
 
 
     } catch (error) {

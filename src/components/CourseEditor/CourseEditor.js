@@ -3,12 +3,22 @@ import { connect } from 'react-redux';
 
 class CourseEditor extends Component {
     
+    // componentDidMount() {
+    //     this.getCurrentCourseToRedux();
+    // }
+
     state = {
         name: '',
         description: '',
         id: 0
     }
 
+    // getCurrentCourseToRedux = () => {
+    //     this.props.dispatch({
+    //         type: 'SEND_COURSE_INFO_TO_REDUX',
+    //         payload: courseNameToRender, courseDescriptionToRender
+    //     })
+    // }
 
     handleBackClick = () => {
         this.props.history.push('/coursesAvailable');

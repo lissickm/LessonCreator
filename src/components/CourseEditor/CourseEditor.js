@@ -8,8 +8,8 @@ class CourseEditor extends Component {
     // }
 
     state = {
-        name: '',
-        description: '',
+        name: this.props.reduxStore.chosenCourseInformation.name,
+        description: this.props.reduxStore.chosenCourseInformation.description,
         id: 0
     }
 

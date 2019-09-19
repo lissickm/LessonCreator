@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 class LessonEditor extends Component {
 
     state = {
-        name: '',
-        description: '',
+        name: this.props.reduxStore.chosenLessonInformation.name,
+        description: this.props.reduxStore.chosenLessonInformation.description,
         id: 0
     }
 

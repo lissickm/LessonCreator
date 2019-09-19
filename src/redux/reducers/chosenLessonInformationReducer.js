@@ -7,4 +7,4 @@ const chosenLessonInformationReducer = (state = 0, action) => {
     }
 }
 
-export default chosenLessonInformationReducer.js;
+export default chosenLessonInformationReducer;

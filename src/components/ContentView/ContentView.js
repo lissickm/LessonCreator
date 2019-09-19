@@ -5,8 +5,9 @@ import './ContentView.css'
 
 class ContentView extends Component {
     state = {
-        description: '',
-        url: '',
+        editBox: false,
+        description: this.props.reduxStore.individualLesson.description,
+        url: this.props.reduxStore.individualLesson.url,
         lesson_id: 0,
         prior_content: null
     }
@@ -15,6 +16,8 @@ class ContentView extends Component {
         this.getContent();
         this.getChoiceVideos();
     }
+
+
 
     handleInputChange = (propertyName, event) => {
         console.log('in handle input change')
@@ -68,6 +71,19 @@ class ContentView extends Component {
         this.props.history.push('/course');
     }
 
+    handleEditClick = () => {
+        console.log('pushed the edit button');
+        this.setState({
+            ...this.state,
+            editBox: true,
+        });
+        this.props.dispatch({
+            type: 'SET_EDIT_BOX_CLICK',
+            payload: true
+        });
+        
+    }
+
     handleGoClick = (id) => {
         this.props.dispatch({
             type: 'SET_CHOSEN_PARENT_VIDEO_ID',
@@ -104,6 +120,7 @@ class ContentView extends Component {
         let videoURL = this.props.reduxStore.individualLesson.url;
 
         const isAdmin = this.props.reduxStore.user.administrator;
+        let showEditBox = this.state.editBox
 
 
         // isAdmin === true, videoURL, videoDescription === false && 
@@ -124,7 +141,7 @@ class ContentView extends Component {
                 <br />
                 <br/>
                 {isAdmin, !videoURL, !videoDescription && <h3>Use the form below to ADD a description and url for your video.</h3>}
-                {isAdmin, videoURL, videoDescription && <h3>Use the form below to EDIT a description and url for your video.</h3>}
+                {isAdmin, videoURL, videoDescription, showEditBox && <h3>Use the form below to EDIT a description and url for your video.</h3>}
                 
                 {isAdmin, !videoURL, !videoDescription  && 
                     <form onSubmit={this.addNewContent}>
@@ -141,7 +158,8 @@ class ContentView extends Component {
                     <input type="submit" value="Submit" />
                 </form>}
 
-                {isAdmin, videoURL, videoDescription &&
+                {!showEditBox && <button onClick={() => this.handleEditClick(chosenLessonID)}>Edit Content Information</button>}
+                {isAdmin, videoURL, videoDescription, showEditBox &&
                     <form onSubmit={this.editContent}>
                         <label>
                             edit video description:

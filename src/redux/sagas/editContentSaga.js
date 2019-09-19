@@ -19,7 +19,6 @@ function* editContent(action) {
 
 function* editContentSaga() {
     yield takeEvery('CHANGE_CONTENT_INFORMATION', editContent)
-
 }
 
 

@@ -11,12 +11,6 @@ class IndividualCourse extends Component {
         this.getLessons();
     }
 
-    // getCourses = () => {
-    //     this.props.dispatch({
-    //         type: 'FETCH_COURSES'
-    //     })
-    // }
-
     getLessons = () => {
         console.log('get lessons', this.props.reduxStore.chosenCourse)
         this.props.dispatch({
@@ -26,12 +20,19 @@ class IndividualCourse extends Component {
         })
     }
 
-    handleClick = (id) => {
+    handleClick = (lesson) => {
         console.log('in lesson handle click');
         this.props.dispatch({
             type: 'SET_CHOSEN_LESSON_ID',
-            payload: id
-        })
+            payload: lesson.id
+        });
+        this.props.dispatch({
+            type: 'SET_CHOSEN_LESSON_CONTENT_INFO',
+            payload: {
+                name: lesson.name,
+                description: lesson.description
+            }
+        });
         this.props.history.push('/content');
     }
 
@@ -105,7 +106,7 @@ class IndividualCourse extends Component {
                         <div key={lesson.id}>
                             <li className="lessonName">{lesson.name}</li>
                             <li className="lessonDescription" >{lesson.description}</li>
-                            <button className="goButton" onClick={() => this.handleClick(lesson.id)}>Go to lesson content</button>
+                            <button className="goButton" onClick={() => this.handleClick(lesson)}>Go to lesson content</button>
                             {isAdmin === true && <button onClick={() => this.handleEditClick(lesson)}>Edit Lesson</button>}
                             {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>}
 

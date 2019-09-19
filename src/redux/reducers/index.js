@@ -5,6 +5,7 @@ import user from './userReducer';
 import courses from './coursesReducer';
 import chosenCourse from './chosenCourseIDReducer';
 import chosenCourseInformation from './chosenCourseInformationReducer';
+import chosenLessonInformation from './chosenLessonInformationReducer'
 import individualCourse from'./individualCourseReducer';
 import chosenLessonID from './chosenLessonIDReducer';
 import individualLesson from './individualLessonReducer';
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   choiceVideos, //contains the lesson next choices
   chosenParentVideoID, 
   chosenCourseInformation,
+  chosenLessonInformation,
 });
 
 export default rootReducer;

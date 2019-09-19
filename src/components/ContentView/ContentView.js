@@ -167,12 +167,12 @@ class ContentView extends Component {
                     <form onSubmit={this.editContent}>
                         <label>
                             edit video description:
-                        <input type="text" value={this.props.reduxStore.individualLesson.description} onChange={(event) => { this.handleInputChange('description', event) }} />
+                        <input type="text" value={this.props.reduxStore.editBoxWasClicked.description} onChange={(event) => { this.handleInputChange('description', event) }} />
                         </label>
                         <br />
                         <label>
                             edit YouTube url:
-                        <input type="text" value={this.state.url} onChange={(event) => { this.handleInputChange('url', event) }} />
+                        <input type="text" value={this.props.reduxStore.editBoxWasClicked.url} onChange={(event) => { this.handleInputChange('url', event) }} />
                         </label>
                         <br />
                         <input type="submit" value="Submit" />
@@ -181,7 +181,7 @@ class ContentView extends Component {
                 <br/>
                 
                 
-                    {/* <div className="choices">
+                <div className="choices">
                     <h3>Click a choice for your next video</h3>
 
                     <ul>
@@ -193,7 +193,7 @@ class ContentView extends Component {
                             )
                         })}
                     </ul>
-                    </div> */}
+                    </div>
                     
                 <br/>
                 <button className="backButton" onClick={() => this.handleClick(chosenLessonID)}>Back to Lessons</button>

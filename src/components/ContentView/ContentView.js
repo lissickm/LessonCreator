@@ -79,7 +79,11 @@ class ContentView extends Component {
         });
         this.props.dispatch({
             type: 'SET_EDIT_BOX_CLICK',
-            payload: true
+            payload: {
+                editBox: true,
+                description: this.props.reduxStore.individualLesson.description,
+                url: this.props.reduxStore.individualLesson.url
+            }
         });
         
     }
@@ -163,7 +167,7 @@ class ContentView extends Component {
                     <form onSubmit={this.editContent}>
                         <label>
                             edit video description:
-                        <input type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
+                        <input type="text" value={this.props.reduxStore.individualLesson.description} onChange={(event) => { this.handleInputChange('description', event) }} />
                         </label>
                         <br />
                         <label>

@@ -11,6 +11,7 @@ import chosenLessonID from './chosenLessonIDReducer';
 import individualLesson from './individualLessonReducer';
 import choiceVideos from './choiceVideosReducer';
 import chosenParentVideoID from './chosenParentVideoIDReducer';
+import editBoxWasClicked from './editBoxWasClickedReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
   chosenParentVideoID, 
   chosenCourseInformation,
   chosenLessonInformation,
+  editBoxWasClicked,
 });
 
 export default rootReducer;

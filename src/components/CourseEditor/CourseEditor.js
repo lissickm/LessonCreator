@@ -68,9 +68,9 @@ class CourseEditor extends Component {
         return (
             <div>
                 <h1>Course Editor</h1>
-                <h1>Course name to edit: {courseNameToRender}</h1>
+                {/* <h1>Course name to edit: {courseNameToRender}</h1>
                 <h1>Course description to edit: {courseDescriptionToRender}</h1>
-                {JSON.stringify(this.state)}
+                {JSON.stringify(this.state)} */}
                 <p>Please edit the name of your course below. If needed, also edit the description of your course, including all topics covered.</p>
                 <br />
                 <form onSubmit={this.editNewCourse}>

@@ -65,9 +65,9 @@ class LessonEditor extends Component {
         return(
             <div>
                 <h1>Lesson Editor</h1>
-                <h1>Lesson name to edit: {lessonToRender}</h1>
-                <h1>Lesson description to edit: {lessonDescriptionToRender}</h1>
-                {JSON.stringify(this.state)}
+                <h1>{lessonToRender}</h1>
+                <h1>{lessonDescriptionToRender}</h1>
+                {/* {JSON.stringify(this.state)} */}
                 <p>Please edit the name of your lesson below. If needed, also edit the description of your lesson.</p>
                 <br />
                 <form onSubmit={this.editNewLesson}>

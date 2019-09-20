@@ -8,7 +8,7 @@ router.get('/:id', (req, res) => {
 
     let chosenLessonID = req.params.id;
     console.log(chosenLessonID);
-    const queryText = `SELECT * FROM content WHERE lesson_id=$1`;
+    const queryText = `SELECT * FROM content WHERE lesson_id=$1 AND prior_content=0 LIMIT 1`;
     pool.query(queryText, [chosenLessonID])
         .then((result) => {
             res.send(result.rows[0]);

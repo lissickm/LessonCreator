@@ -71,7 +71,7 @@ class App extends Component {
 
             <Route path="/course" component={IndividualCourse}/>
 
-            <Route path="/content" component={ContentView}/>
+            <Route path="/content/" component={ContentView}/>
 
             <Route path="/adminCoursesAvailable" component={AdminCoursesAvailable}/>
 

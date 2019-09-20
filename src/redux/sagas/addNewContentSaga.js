@@ -3,6 +3,8 @@ import axios from 'axios';
 
 function* postNewContent(action) {
     try {
+        
+
         yield axios.post('api/content', action.payload);
         yield put({
             type: 'FETCH_INDIVIDUAL_LESSON',

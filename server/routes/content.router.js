@@ -4,13 +4,14 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
     const newContent = req.body;
+    console.log('post new content:', newContent);
     const queryText = `INSERT INTO content ("description", "url", "lesson_id", "prior_content") VALUES ($1, $2, $3, $4)`
 
 
     const queryValues = [
         newContent.description,
         newContent.url,
-        newContent.lesson_id,
+        newContent.chosenLessonID,
         newContent.prior_content
     ]
 
@@ -25,7 +26,7 @@ router.post('/', (req, res) => {
 
 router.get('/prior/:id', (req, res) => {
     let priorContentID = req.params.id;
-    const queryText = `SELECT * FROM content WHERE "prior_content"=$1`;
+    const queryText = `SELECT * FROM content WHERE "lesson_id"=$1`;
     pool.query(queryText, [priorContentID])
         .then((result) => { res.send(result.rows); })
         .catch((error) => {

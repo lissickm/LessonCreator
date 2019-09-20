@@ -9,7 +9,7 @@ class ContentView extends Component {
         description:'',
         url: '',
         lesson_id: 0,
-        prior_content: null
+        prior_content: 0
     }
 
     componentDidMount() {
@@ -41,9 +41,11 @@ class ContentView extends Component {
 
     addNewContent = event => {
         event.preventDefault();
+        let newContent = {...this.state, chosenLessonID: this.props.reduxStore.chosenLessonID };
+
         this.props.dispatch({
             type: 'ADD_NEW_CONTENT',
-            payload: this.state
+            payload: newContent,
         })
         this.setState({
             description: '',
@@ -63,17 +65,25 @@ class ContentView extends Component {
             description: '',
             url: '',
             lesson_id: 0,
-            prior_content: null,
+            prior_content: 0,
             editBox: false,
         });
     }
 
     getContent = () => {
-        console.log('chosen Lesson Id', this.props.reduxStore.chosenLessonID)
-        this.props.dispatch({
-            type: 'FETCH_INDIVIDUAL_LESSON',
-            payload: this.props.reduxStore.chosenLessonID
-        })
+        // console.log('chosen Lesson Id', this.props.match.params)
+        // if (this.props.match.params.id) {
+        //     this.props.dispatch({
+        //         type: 'FETCH_INDIVIDUAL_LESSON',
+        //         payload: this.props.match.params.id,
+        //     })            
+        // } else {
+            this.props.dispatch({
+                type: 'FETCH_INDIVIDUAL_LESSON',
+                payload: this.props.reduxStore.chosenLessonID
+            })
+        // }
+       
     }
 
     getChoiceVideos = () => {
@@ -109,7 +119,8 @@ class ContentView extends Component {
         this.props.dispatch({
             type: 'SET_CHOSEN_PARENT_VIDEO_ID',
             payload: id
-        })
+        });
+        this.props.history.push('/content/' + id);
     }
 
 

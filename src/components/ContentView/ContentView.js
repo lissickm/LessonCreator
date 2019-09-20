@@ -6,8 +6,8 @@ import './ContentView.css'
 class ContentView extends Component {
     state = {
         editBox: false,
-        description: this.props.reduxStore.individualLesson.description,
-        url: this.props.reduxStore.individualLesson.url,
+        description:'',
+        url: '',
         lesson_id: 0,
         prior_content: null
     }
@@ -18,6 +18,16 @@ class ContentView extends Component {
     }
 
 
+//*********** */
+    handleEditInputChange = (propertyName, event) => {
+        console.log('in handle edit input change')
+        this.props.dispatch({
+            type: 'UPDATE_EDIT_INFO',
+            payload: {
+                [propertyName] : event.target.value
+            }
+        });
+    }
 
     handleInputChange = (propertyName, event) => {
         console.log('in handle input change')
@@ -25,14 +35,16 @@ class ContentView extends Component {
             ...this.state,
             [propertyName]: event.target.value,
         });
-        this.setState({
-            lesson_id: this.props.reduxStore.chosenLessonID
-        });
+        
+
     }
 
     addNewContent = event => {
         event.preventDefault();
-        this.props.dispatch({ type: 'ADD_NEW_CONTENT', payload: this.state, chosen_lesson_id: this.props.reduxStore.chosenLessonID })
+        this.props.dispatch({
+            type: 'ADD_NEW_CONTENT',
+            payload: this.state
+        })
         this.setState({
             description: '',
             url: ''
@@ -40,14 +52,19 @@ class ContentView extends Component {
         
     }
 
+    // sends final edits to the saga to PUT
     editContent = event => {
-        // event.preventDefault();
-        this.props.dispatch({ type: 'CHANGE_CONTENT_INFORMATION', payload: this.state, content_id: this.props.reduxStore.individualLesson.id })
+        event.preventDefault();
+        this.props.dispatch({ 
+            type: 'CHANGE_CONTENT_INFORMATION', 
+            payload: this.props.reduxStore.individualLesson 
+        })
         this.setState({
             description: '',
             url: '',
             lesson_id: 0,
-            prior_content: null
+            prior_content: null,
+            editBox: false,
         });
     }
 
@@ -147,6 +164,7 @@ class ContentView extends Component {
                 {isAdmin, !videoURL, !videoDescription && <h3>Use the form below to ADD a description and url for your video.</h3>}
                 {isAdmin, videoURL, videoDescription, showEditBox && <h3>Use the form below to EDIT a description and url for your video.</h3>}
                 
+                {/* ADD NEW FORM */}
                 {isAdmin, !videoURL, !videoDescription  && 
                     <form onSubmit={this.addNewContent}>
                     <label>
@@ -162,17 +180,19 @@ class ContentView extends Component {
                     <input type="submit" value="Submit" />
                 </form>}
 
-                {!showEditBox && <button onClick={() => this.handleEditClick(chosenLessonID)}>Edit Content Information</button>}
+                {!showEditBox, isAdmin, videoURL, videoDescription&& <button onClick={() => this.handleEditClick(chosenLessonID)}>Edit Content Information</button>}
+
+                {/* EDIT FORM */}
                 {isAdmin, videoURL, videoDescription, showEditBox &&
                     <form onSubmit={this.editContent}>
                         <label>
                             edit video description:
-                        <input type="text" value={this.props.reduxStore.editBoxWasClicked.description} onChange={(event) => { this.handleInputChange('description', event) }} />
+                        <input type="text" value={this.props.reduxStore.individualLesson.description} onChange={(event) => { this.handleEditInputChange('description', event) }} />
                         </label>
                         <br />
                         <label>
                             edit YouTube url:
-                        <input type="text" value={this.props.reduxStore.editBoxWasClicked.url} onChange={(event) => { this.handleInputChange('url', event) }} />
+                        <input type="text" value={this.props.reduxStore.individualLesson.url} onChange={(event) => { this.handleEditInputChange('url', event) }} />
                         </label>
                         <br />
                         <input type="submit" value="Submit" />

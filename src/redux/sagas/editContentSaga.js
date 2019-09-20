@@ -2,10 +2,10 @@ import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* editContent(action) {
-    console.log('in editContent saga');
+    console.log('in editContent saga ACTION', action);
 
     try {
-        yield axios.put(`api/content/${action.content_id}`, action.payload);
+        yield axios.put(`api/content/${action.payload.id}`, action.payload);
         yield put({
             type: 'FETCH_INDIVIDUAL_LESSON',
             payload: action.payload.lesson_id

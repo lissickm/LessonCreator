@@ -1,0 +1,34 @@
+.welcome {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.thanks {
+    margin-top: 30px;
+}
+
+.log-in {
+    float: right;
+}
+
+.goToCourses {
+    background-color: #28c76f;
+    border-radius: 20px;
+    color: #f8f8f8;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+}
+
+.goToCourses:hover {
+    background-color: #fafafa;
+    border-color: #28c76f;
+    color: #28c76f
+}
+
+.mainPage {
+    margin-left: 40px;
+    margin-right: 40px;
+}

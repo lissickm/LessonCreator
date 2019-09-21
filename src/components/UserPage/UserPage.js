@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import '../App/bootstrap copy.css';
+import './UserPage.css';
 
 class UserPage extends Component {
 
@@ -13,23 +15,20 @@ class UserPage extends Component {
 
 
     return (
-      < div >
+      < div className="mainPage" >
 
-      <h1 className="welcome">
+      <div className="welcome">
         Welcome, {this.props.reduxStore.user.first_name}!
-    </h1>
+    </div>
       <p>Your ID is: {this.props.reduxStore.user.id}</p>
-      <LogOutButton className="log-in" />
-      <br />
-
-
-      <p>Thanks for visiting LessonCreator.</p>
+      <p className="thanks">Thanks for visiting LessonCreator.</p>
       <br />
       <p>As a student, you will be given access to many different courses. Each course will have numerous lessons for you to explore. Simply click into the lesson of your choice and you will find a video to watch. After you have completed the video, choose your next video from the list to the right of the video player. When there are no more choices left, head back to the lesson page to complete your next lesson</p>
       <br />
       <p>As a course creator, you will be able to craft your own lessons in a linear or "tree-diagram" style. Name each course and lesson, then add video content by a YouTube url. Once a student views the first video in your lesson. They will be given options to choose from for their next video. Based on your descriptions and choices, students will have multiple paths through each lesson.</p>
       <br />
-      <button onClick={() => this.props.history.push('/coursesAvailable')}>Check out courses!</button>
+      <button className="goToCourses" onClick={() => this.props.history.push('/coursesAvailable')}>Go To Courses!</button>
+        <LogOutButton className="log-in" />
     
   </div >
 );

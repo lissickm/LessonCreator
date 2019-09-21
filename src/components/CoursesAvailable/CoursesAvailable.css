@@ -1,3 +1,7 @@
+.wholePage {
+    margin-right: 25px;
+}
+
 .courseName {
     list-style-type: none;
     /* text-decoration: underline; */
@@ -38,11 +42,12 @@
     margin-top: 20px;
     margin-bottom: 24px;
     font-size: 40px;
+    font-weight: bold;
 }
 
 .addCourseButton {
-    margin-bottom: 20px;
-     background-color: #28c76f;
+    margin-bottom: 40px;
+    background-color: #28c76f;
     border-radius: 20px;
     color: #f8f8f8;
     min-height: 35px;
@@ -51,7 +56,24 @@
     cursor: pointer;
 }
 
+.goButton {
+    margin-bottom: 50px;
+    margin-top: 10px;
+    background-color: #28c76f;
+    border-radius: 20px;
+    color: #f8f8f8;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+}
 .addCourseButton:hover {
+    background-color: #fafafa;
+    border-color: #28c76f;
+    color: #28c76f
+}
+
+.goButton:hover {
     background-color: #fafafa;
     border-color: #28c76f;
     color: #28c76f

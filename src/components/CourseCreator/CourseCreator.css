@@ -1,0 +1,150 @@
+.create {
+    font-size: 40px;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.directions {
+    font-size: 25px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.nameInput {
+    width: 100%
+}
+
+.newCourseForm {
+    width: 700px;
+    height: 250px;
+    margin: 2rem auto;
+    border: 2px solid #4d525e;
+    padding: 2rem;
+    border-radius: 5px;
+
+}
+
+.nameInput {
+    width: 630px;
+    display: block;
+    border-radius: 5px;
+    padding: .2rem;
+}
+
+label {
+    display: block;
+}
+
+input {
+    display: block;
+    
+    display: block;
+    border-radius: 5px;
+    padding: .2rem;
+}
+
+.descriptionInput {
+    width: 630px;
+    display: block;
+    border-radius: 5px;
+    padding: .2rem;
+    white-space: normal;
+    word-break: break-all;
+}
+
+/* .inputs {
+
+    width: 600px;
+    height: 700px;
+    max-width: 750px;
+    margin: 2rem auto;
+    border: 2px solid #4d525e;
+    padding: 2rem;
+    border-radius: 5px;
+
+}
+
+label {
+    display: block;
+    padding: 1rem 0 .5rem;
+}
+
+input {
+    
+    display: block;
+    width: 100%;
+    
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    border: 2px solid #4d525e;
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+.description {
+    height: 400px;
+    vertical-align: top;
+    
+    
+}
+
+.submitButton {
+    background-color: #fafafa;
+    border-color: #28c76f;
+    border-radius: 20px;
+    color: #28c76f;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+
+    width: 20%;
+}
+
+.submitButton:hover {
+    background-color: #28c76f;
+    border-color: #28c76f;
+    color: #fafafa;
+} */
+.submitButton {
+    margin-top: 20px;
+    background-color: #fafafa;
+    border-color: #28c76f;
+    border-radius: 20px;
+    color: #28c76f;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+
+    width: 20%;
+}
+
+.submitButton:hover {
+    background-color: #28c76f;
+    border-color: #28c76f;
+    color: #fafafa;
+}
+
+.backButton {
+     margin-bottom: 40px;
+    background-color: #28c76f;
+    border-radius: 20px;
+    color: #f8f8f8;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+}
+
+.backButton:hover {
+    background-color: #fafafa;
+    border-color: #28c76f;
+    color: #28c76f
+}

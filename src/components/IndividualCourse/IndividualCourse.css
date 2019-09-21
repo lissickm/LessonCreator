@@ -1,6 +1,6 @@
 .lessonName {
     list-style-type: none;
-    text-decoration: underline;
+     font-weight: bold;
     font-size: 25px;
     
 }

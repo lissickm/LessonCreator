@@ -51,6 +51,7 @@ class ContentView extends Component {
             description: '',
             url: ''
         });
+        this.props.history.push('/course');
         
     }
 
@@ -68,6 +69,7 @@ class ContentView extends Component {
             prior_content: 0,
             editBox: false,
         });
+        this.props.history.push('/course');
     }
 
     getContent = () => {
@@ -123,6 +125,16 @@ class ContentView extends Component {
         this.props.history.push('/content/' + id);
     }
 
+    demoClick = () => {
+        this.setState({
+            editBox: false,
+            description: 'How can you use a limit to create a definition of a derivative?',
+            url: '71DwCbpdaOo',
+            lesson_id: 0,
+            prior_content: 0
+        });
+    }
+
 
 
     render() {
@@ -160,9 +172,11 @@ class ContentView extends Component {
         return (
             <div>
                 
-                <h2>{courseToRender} - {lessonToRender}</h2>
+                <h2>{courseToRender}</h2>
+                <br/>
+                <h2>{lessonToRender}</h2>
                 <br />
-                {JSON.stringify(this.state)}
+                {/* {JSON.stringify(this.state)} */}
                 <br/>
                 {/* {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>} */}
 
@@ -172,7 +186,7 @@ class ContentView extends Component {
                 {videoURL && <YouTube className="video" videoId={videoURL} />}
                 <br />
                 <br/>
-                {isAdmin, !videoURL, !videoDescription && <h3>Use the form below to ADD a description and url for your video.</h3>}
+                {isAdmin, !videoURL, !videoDescription && <h3 onClick={this.demoClick}>Use the form below to ADD a description and url for your video.</h3>}
                 {isAdmin, videoURL, videoDescription, showEditBox && <h3>Use the form below to EDIT a description and url for your video.</h3>}
                 
                 {/* ADD NEW FORM */}
@@ -191,7 +205,7 @@ class ContentView extends Component {
                     <input type="submit" value="Submit" />
                 </form>}
 
-                {!showEditBox, isAdmin, videoURL, videoDescription&& <button onClick={() => this.handleEditClick(chosenLessonID)}>Edit Content Information</button>}
+                {isAdmin && <button onClick={() => this.handleEditClick(chosenLessonID)}>Edit Content Information</button>}
 
                 {/* EDIT FORM */}
                 {isAdmin, videoURL, videoDescription, showEditBox &&

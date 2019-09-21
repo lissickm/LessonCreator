@@ -87,10 +87,13 @@ class CoursesAvailable extends Component {
                                 <li className="courseName">{course.name}</li>
                                 <li className="courseDescription">{course.description}</li>
                                     {/* {isAdmin === true && <button onClick={() => this.handleAddLessonClick()}>Add New Lesson</button>} */}
-                                    {isAdmin === true && <button onClick={() => this.handleDeleteClick(course.id)}>Delete Course</button>}
-                                    {isAdmin === true && <button onClick={() => this.handleEditClick(course)}>Edit Course</button>}
+                                    
                                     {isAdmin ? (<button className="editgoButton" onClick={() => this.handleGoClick(course.id)}>Go to course</button>) :
                                         <button className="editgoButton" onClick={() => this.handleGoClick(course.id)}>Go</button>}
+                                    
+                                    {isAdmin === true && <button onClick={() => this.handleEditClick(course)}>Edit Course</button>}
+                                    
+                                    {isAdmin === true && <button onClick={() => this.handleDeleteClick(course.id)}>Delete Course</button>}
                                     
                                 
                             </div>

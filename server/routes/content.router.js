@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
 
 router.get('/prior/:id', (req, res) => {
     let priorContentID = req.params.id;
-    const queryText = `SELECT * FROM content WHERE "lesson_id"=$1`;
+    const queryText = `SELECT * FROM content WHERE "lesson_id"=$1 AND "prior_content">0`;
     pool.query(queryText, [priorContentID])
         .then((result) => { res.send(result.rows); })
         .catch((error) => {

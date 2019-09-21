@@ -32,19 +32,28 @@ class LessonCreator extends Component {
             name: '',
             description: ''
         });
+        this.props.history.push('/course');
+    }
+
+    demoClick = () => {
+        this.setState({
+            name: 'Section 2.5',
+            description: 'The Definition of a Derivative',
+            course_id: this.props.reduxStore.chosenCourse
+        });
     }
     
 
     render() {
 
-        
+    
 
         return(
             <div>
                 <h1>Lesson Creator</h1>
                 {JSON.stringify(this.state)}
                 <br/>
-                <p>Please enter the name of your lesson and a description of the topics covered.</p>
+                <p onClick={this.demoClick}>Please enter the name of your lesson and a description of the topics covered.</p>
                 <br/>
                 <form onSubmit={this.addNewLesson}>
                     <label>

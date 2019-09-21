@@ -184,7 +184,8 @@ class ContentView extends Component {
                 
                 {/* {isAdmin === true && <button>Delete Video</button>} */}
                 {videoURL && <YouTube className="video" videoId={videoURL} />}
-                
+                <br />
+                <br/>
                 {isAdmin, !videoURL, !videoDescription && <h3 onClick={this.demoClick}>Use the form below to ADD a description and url for your video.</h3>}
                 {isAdmin, videoURL, videoDescription, showEditBox && <h3>Use the form below to EDIT a description and url for your video.</h3>}
                 

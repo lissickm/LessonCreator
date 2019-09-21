@@ -92,7 +92,7 @@ class CoursesAvailable extends Component {
                                     {/* {isAdmin === true && <button onClick={() => this.handleAddLessonClick()}>Add New Lesson</button>} */}
                                     
                                     {isAdmin ? (<button className="editgoButton" onClick={() => this.handleGoClick(course.id)}>Go to Course Lesson View</button>) :
-                                        <button className="goButton" onClick={() => this.handleGoClick(course.id)}>Go</button>}
+                                        <button className="goButtonCA" onClick={() => this.handleGoClick(course.id)}>Go</button>}
                                     
                                     {isAdmin === true && <button className="edit" onClick={() => this.handleEditClick(course)}>Edit Course Name and Description</button>}
                                     

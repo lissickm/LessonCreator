@@ -17,7 +17,7 @@ class UserPage extends Component {
     return (
       < div className="mainPage" >
 
-      <div className="welcome">
+      <div className="welcomeUser">
         Welcome, {this.props.reduxStore.user.first_name}!
     </div>
       <p>Your ID is: {this.props.reduxStore.user.id}</p>

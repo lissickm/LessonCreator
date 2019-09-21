@@ -70,15 +70,16 @@ class CoursesAvailable extends Component {
 
 
             <div>
-                <h1>Courses Available</h1>
-                <br/>
                 
-                <h2>{this.props.reduxStore.user.first_name} {this.props.reduxStore.user.last_name} 
-                </h2>
-                <br/>
+                <div className="welcome">Welcome, {this.props.reduxStore.user.first_name}&#33;
+                </div>
+                <div className="directions">Thanks for visiting LessonCreator! As a student you will be given access to many different courses. Each class will have numerous lesson for you to explore. Simply click into the lesson of you choice and you will find a video to watch. After you have completed the video, you may be able choose your next video from a list below the video player. When you are complete, head back to the lesson page to complete your lesson.</div>
+                
                 <div>
                     {isAdmin === true && <button className="addCourseButton" onClick={() => this.handleAddCourseClick()}>Add New Course</button>}
                 </div>
+                <div className="available">Available Courses</div>
+                
                 <ul>
                     {this.props.reduxStore.courses.map  (course => {
                             return (
@@ -88,12 +89,12 @@ class CoursesAvailable extends Component {
                                 <li className="courseDescription">{course.description}</li>
                                     {/* {isAdmin === true && <button onClick={() => this.handleAddLessonClick()}>Add New Lesson</button>} */}
                                     
-                                    {isAdmin ? (<button className="editgoButton" onClick={() => this.handleGoClick(course.id)}>Go to course</button>) :
+                                    {isAdmin ? (<button className="editgoButton" onClick={() => this.handleGoClick(course.id)}>Go to Course</button>) :
                                         <button className="editgoButton" onClick={() => this.handleGoClick(course.id)}>Go</button>}
                                     
-                                    {isAdmin === true && <button onClick={() => this.handleEditClick(course)}>Edit Course</button>}
+                                    {isAdmin === true && <button className="edit" onClick={() => this.handleEditClick(course)}>Edit Course</button>}
                                     
-                                    {isAdmin === true && <button onClick={() => this.handleDeleteClick(course.id)}>Delete Course</button>}
+                                    {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(course.id)}>Delete Course</button>}
                                     
                                 
                             </div>

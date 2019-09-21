@@ -11,6 +11,18 @@
    margin-left: 10px;
 }
 
+.available {
+    margin-left: 40px;
+    font-size: 35px;
+    margin-bottom: 24px;
+}
+
+.directions {
+    margin-left: 50px;
+    font-size: 20px;
+    margin-bottom: 56px;
+}
+
 .editgoButton {
     margin-bottom: 20px;
     margin-left: 10px;
@@ -18,12 +30,89 @@
 
 .addCourseButton {
     margin-left: 40px;
+    
 }
 
-h2 {
+.welcome {
     margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 24px;
+    font-size: 40px;
 }
 
 .addCourseButton {
     margin-bottom: 20px;
+     background-color: #28c76f;
+    border-radius: 20px;
+    color: #f8f8f8;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+}
+
+.addCourseButton:hover {
+    background-color: #fafafa;
+    border-color: #28c76f;
+    color: #28c76f
+}
+
+.editgoButton {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    border-color: #28c76f;
+    border-radius: 20px;
+    color: #28c76f;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+}
+
+.editgoButton:hover {
+    background-color: #28c76f;
+    border-color: #28c76f;
+    color: #fafafa
+}
+
+.edit {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    border-color: #28c76f;
+    border-radius: 20px;
+    color: #28c76f;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+}
+
+.edit:hover {
+    background-color: #28c76f;
+    border-color: #28c76f;
+    color: #fafafa
+}
+
+.deleteButton {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    border-color: #dd5341;
+    border-radius: 20px;
+    color: #dd5341;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: #dd5341;
+    border-color: #dd5341;
+    color: #fafafa
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './CourseEditor.css';
 
 class CourseEditor extends Component {
     
@@ -45,6 +46,7 @@ class CourseEditor extends Component {
             description: '',
             id: 0
         });
+        // this.props.history.push('/coursesAvailable');
     }
 
 
@@ -71,18 +73,18 @@ class CourseEditor extends Component {
                 {/* <h1>Course name to edit: {courseNameToRender}</h1>
                 <h1>Course description to edit: {courseDescriptionToRender}</h1>
                 {JSON.stringify(this.state)} */}
-                <p>Please edit the name of your course below. If needed, also edit the description of your course, including all topics covered.</p>
+                <p>Please edit the name of your course below. If needed, also edit the description of your course, including all topics covered. Once you submit your changes, navigate back to the courses available to see your changes.</p>
                 <br />
-                <form onSubmit={this.editNewCourse}>
+                <form className="newCourseEditor" onSubmit={this.editNewCourse}>
                     <label>
                         Edit Course Name:
-                        <input type="text" value={this.state.name} onChange={(event) => { this.handleInputChange('name', event) }} />
+                        <input className="nameEdit" type="text" value={this.state.name} onChange={(event) => { this.handleInputChange('name', event) }} />
                     </label>
                     <label>
                         Edit Course Description:
-                        <input type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
+                        <input className="descriptionEdit" type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
                     </label>
-                    <input type="submit" value="Submit" />
+                    <input class="submitButton" type="submit" value="Submit" />
                 </form>
                 <br />
                 <button className="backButton" onClick={() => this.handleBackClick()}>Back To Courses</button>

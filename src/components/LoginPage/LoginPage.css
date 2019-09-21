@@ -1,0 +1,12 @@
+.loginForm {
+    width: 500px;
+    height: 400px;
+    margin: 2rem auto;
+    border: 2px solid #dd5341;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+h1{
+    margin-bottom: 30px;
+}

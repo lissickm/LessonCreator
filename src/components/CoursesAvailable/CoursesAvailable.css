@@ -2,14 +2,14 @@
     margin-right: 25px;
 }
 
-.courseName {
+.courseNameCA {
     list-style-type: none;
     /* text-decoration: underline; */
     font-size: 25px;
     font-weight: bold;
 }
 
-.courseDescription {
+.courseDescriptionCA {
    list-style-type: none; 
    font-size: 20px;
    margin-left: 10px;
@@ -21,9 +21,9 @@
     margin-bottom: 24px;
 }
 
-.directions {
+.directionsCourses {
     margin-left: 50px;
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 20px;
 }
 

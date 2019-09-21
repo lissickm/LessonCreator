@@ -172,20 +172,19 @@ class ContentView extends Component {
         return (
             <div>
                 
-                <h2>{courseToRender}</h2>
+                <h1>{courseToRender}</h1>
                 <br/>
                 <h2>{lessonToRender}</h2>
-                <br />
+                
                 {/* {JSON.stringify(this.state)} */}
-                <br/>
+               
                 {/* {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>} */}
 
                 <h3>{videoDescription}</h3>
-                <br />
+                
                 {/* {isAdmin === true && <button>Delete Video</button>} */}
                 {videoURL && <YouTube className="video" videoId={videoURL} />}
-                <br />
-                <br/>
+                
                 {isAdmin, !videoURL, !videoDescription && <h3 onClick={this.demoClick}>Use the form below to ADD a description and url for your video.</h3>}
                 {isAdmin, videoURL, videoDescription, showEditBox && <h3>Use the form below to EDIT a description and url for your video.</h3>}
                 
@@ -205,7 +204,7 @@ class ContentView extends Component {
                     <input type="submit" value="Submit" />
                 </form>}
 
-                {isAdmin && <button onClick={() => this.handleEditClick(chosenLessonID)}>Edit Content Information</button>}
+                {isAdmin && <button className="editContent" onClick={() => this.handleEditClick(chosenLessonID)}>Edit Content Information</button>}
 
                 {/* EDIT FORM */}
                 {isAdmin, videoURL, videoDescription, showEditBox &&
@@ -227,13 +226,13 @@ class ContentView extends Component {
                 
                 
                 <div className="choices">
-                    <h3>Click a choice for your next video</h3>
+                    <h3>Click a choice for your next video:</h3>
 
                     <ul>
                         {this.props.reduxStore.choiceVideos.map(video => {
                             return (
                                 <div key={video.id}>
-                                    <li>{video.description}<button onClick={() => this.handleGoClick(video.id)}>Go</button></li>
+                                    <li>{video.description}<button className="goButton" onClick={() => this.handleGoClick(video.id)}>Go</button></li>
                                 </div>
                             )
                         })}

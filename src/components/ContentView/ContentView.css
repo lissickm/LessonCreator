@@ -1,5 +1,8 @@
 .video {
-    margin-left: 30px;
+    margin-left: 40px;
+    border: 3px solid #dd5341;
+    padding: .2rem;
+    border-radius: 5px;
 }
 
 .backButton {
@@ -8,14 +11,65 @@
 }
 
 h3 {
-    margin-left: 30px;  
+    margin-left: 40px;  
 }
 
 h4 {
     margin-left: 45px;
 }
 
-.goButton {
-    margin-left: 45px;
+
+.editContent {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    background-color: #fafafa;
+    border-color: #28c76f;
+    border-radius: 20px;
+    color: #28c76f;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
 }
 
+.editContent:hover {
+    background-color: #28c76f;
+    border-color: #28c76f;
+    color: #fafafa;
+}
+
+.goButton {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    border-color: #28c76f;
+    border-radius: 20px;
+    color: #28c76f;
+    min-height: 30px;
+    min-width: 50px;
+    outline:0;
+    cursor: pointer;
+    
+}
+
+.goButton:hover {
+    background-color: #28c76f;
+    border-color: #28c76f;
+    color: #fafafa;
+}
+
+h1 {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+h2 {
+    margin-left: 40px;
+}
+
+li {
+    margin-left: 40px;
+    font-size: 22px;
+}

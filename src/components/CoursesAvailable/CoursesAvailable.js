@@ -73,9 +73,9 @@ class CoursesAvailable extends Component {
                 
                 <div className="welcome">Welcome, {this.props.reduxStore.user.first_name}&#33;
                 </div>
-                { !isAdmin && <div className="directions">Thanks for visiting LessonCreator! As a student you will be given access to many different courses. Each class will have numerous lesson for you to explore. Simply click into the lesson of you choice and you will find a video to watch. After you have completed the video, you may be able choose your next video from a list below the video player. When you are complete, head back to the lesson page to complete your lesson.</div>}
+                { !isAdmin && <div className="directionsCourses">Thanks for visiting LessonCreator! As a student you will be given access to many different courses. Each class will have numerous lesson for you to explore. Simply click into the lesson of you choice and you will find a video to watch. After you have completed the video, you may be able choose your next video from a list below the video player. When you are complete, head back to the lesson page to complete your lesson.</div>}
 
-                {isAdmin && <div className="directions">Thanks for visiting LessonCreator! As a course creator you will be given the ability on this page to add a new course. Once a course is created, you have the ability to edit the course information or delete it. You can also navigate to lesson view to add lessons to your course. </div>}
+                {isAdmin && <div className="directionsCourses">Thanks for visiting LessonCreator! As a course creator you will be given the ability on this page to add a new course. Once a course is created, you have the ability to edit the course information or delete it. You can also navigate to lesson view to add lessons to your course. </div>}
                 
                 <div>
                     {isAdmin === true && <button className="addCourseButton" onClick={() => this.handleAddCourseClick()}>Add New Course</button>}
@@ -87,8 +87,8 @@ class CoursesAvailable extends Component {
                             return (
                             <div key={course.id}>
                                 
-                                <li className="courseName">{course.name}</li>
-                                <li className="courseDescription">{course.description}</li>
+                                <li className="courseNameCA">{course.name}</li>
+                                <li className="courseDescriptionCA">{course.description}</li>
                                     {/* {isAdmin === true && <button onClick={() => this.handleAddLessonClick()}>Add New Lesson</button>} */}
                                     
                                     {isAdmin ? (<button className="editgoButton" onClick={() => this.handleGoClick(course.id)}>Go to Course Lesson View</button>) :

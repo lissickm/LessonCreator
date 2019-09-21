@@ -3,6 +3,7 @@
      font-weight: bold;
     font-size: 25px;
     
+    
 }
 
 .lessonDescription {
@@ -11,17 +12,68 @@
    
 }
 
-.displayInline {
-    
-}
 
 .courseName {
-    
-    
-    margin-left: 0px;
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .goButton {
     margin-left: 10px;
     margin-bottom: 20px;
+}
+
+.addLesson {
+    margin-bottom: 40px;
+    background-color: #28c76f;
+    border-radius: 20px;
+    color: #f8f8f8;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+.goLesson {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    border-color: #28c76f;
+    border-radius: 20px;
+    color: #28c76f;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+}
+
+.goLesson:hover {
+    background-color: #28c76f;
+    border-color: #28c76f;
+    color: #fafafa;
+}
+
+.editLesson {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    border-color: #28c76f;
+    border-radius: 20px;
+    color: #28c76f;
+    min-height: 35px;
+    min-width: 120px;
+    outline:0;
+    cursor: pointer;
+}
+
+.editLesson:hover {
+    background-color: #28c76f;
+    border-color: #28c76f;
+    color: #fafafa;
 }

@@ -94,11 +94,11 @@ class IndividualCourse extends Component {
                 <br/>
                 {JSON.stringify(this.props.reduxStore.individualCourse)} */}
 
-            <div className="courseName">
-                <h1>{courseToRender}</h1>
+            <div>
+                    <h1 className="courseName">{courseToRender}</h1>
             </div>
             <div>
-                {isAdmin === true && <button onClick={() => this.handleAddNewLessonClick()}>Add a New Lesson</button>}
+                {isAdmin === true && <button className="addLesson" onClick={() => this.handleAddNewLessonClick()}>Add a New Lesson</button>}
             </div>
             <ul>
                 {this.props.reduxStore.individualCourse.map (lesson => {
@@ -106,8 +106,8 @@ class IndividualCourse extends Component {
                         <div key={lesson.id}>
                             <li className="lessonName">{lesson.name}</li>
                             <li className="lessonDescription" >{lesson.description}</li>
-                            <button className="goButton" onClick={() => this.handleClick(lesson)}>Go to lesson content</button>
-                            {isAdmin === true && <button onClick={() => this.handleEditClick(lesson)}>Edit Lesson</button>}
+                            <button className="goLesson" onClick={() => this.handleClick(lesson)}>Go to Lesson Content View</button>
+                            {isAdmin === true && <button className="editLesson" onClick={() => this.handleEditClick(lesson)}>Edit Lesson Name and Description</button>}
                             {isAdmin === true && <button className="deleteButton" onClick={() => this.handleDeleteClick(lesson.id)}>Delete</button>}
 
                            

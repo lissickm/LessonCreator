@@ -32,12 +32,19 @@ class CourseCreator extends Component {
         this.setState({
             name: '',
             description: '',
-            creator_id: 0
+            creator_id: 1
         });
         // this.props.history.push('/coursesAvailable');
     }
 
-
+    demoClick = () => {
+        this.setState({
+            name: 'AP Calculus Chapter 2 Quiz Review',
+            description: 'The main concept in chapter 2 to master is the idea of a derivative. You need to understand how limits allow us to generate the definition of a derivative. You will also need to understand how to interpret the meaning of a derivative numerically, graphically and conceptually. Lastly, you will have to generate the derivative of numerous types of functions using the limit definition or the numerous shorthand techniques we learned in class.',
+            creator_id: this.props.reduxStore.user.id
+            
+        });
+    }
 
     // <input type='text' value={this.state.name} placeholder='name' onChange={(event) => { this.handleNameChange('name', event) }} />
     //     <input type='text' value={this.state.kingdom} placeholder='kingdom' onChange={(event) => { this.handleNameChange('kingdom', event) }} />
@@ -48,7 +55,7 @@ class CourseCreator extends Component {
             <div>
                 <div className="create">Create a New Course</div>
                 {/* {JSON.stringify(this.state)} */}
-                <p className="directions">Please enter the name of your course below. Also enter a detailed description of your course, including all topics covered. After you submit, you will be brought back to the courses available view.</p>
+                <p onClick={this.demoClick} className="directions">Please enter the name of your course below. Also enter a detailed description of your course, including all topics covered. After you submit, you will be brought back to the courses available view.</p>
                 <br/>
                 <form className="newCourseForm" onSubmit={this.addNewCourse}>
                     <label className="courseLabel">

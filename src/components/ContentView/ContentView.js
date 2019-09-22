@@ -205,7 +205,7 @@ class ContentView extends Component {
                     <input class="submitButton" type="submit" value="Submit" />
                 </form>}
 
-                {isAdmin && <button className="editContent" onClick={() => this.handleEditClick(chosenLessonID)}>Edit Content Information</button>}
+                {isAdmin, videoURL, videoDescription && <button className="editContent" onClick={() => this.handleEditClick(chosenLessonID)}>Edit Content Information</button>}
 
                 {/* EDIT FORM */}
                 {isAdmin, videoURL, videoDescription, showEditBox &&
@@ -227,7 +227,7 @@ class ContentView extends Component {
                 
                 
                 <div className="choices">
-                    <h3>Click a choice for your next video:</h3>
+                    {isAdmin, videoURL, videoDescription &&<h4>Click a choice for your next video:</h4>}
 
                     <ul>
                         {this.props.reduxStore.choiceVideos.map(video => {

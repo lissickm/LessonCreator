@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './LessonEditor.css'
 
 class LessonEditor extends Component {
 
@@ -65,21 +66,21 @@ class LessonEditor extends Component {
         return(
             <div>
                 <h1>Lesson Editor</h1>
-                <h1>{lessonToRender}</h1>
-                <h1>{lessonDescriptionToRender}</h1>
+                {/* <h2>{lessonToRender}</h2>
+                <h2>{lessonDescriptionToRender}</h2> */}
                 {/* {JSON.stringify(this.state)} */}
-                <p>Please edit the name of your lesson below. If needed, also edit the description of your lesson.</p>
+                <p className="directions">Please edit the name of your lesson below. If needed, also edit the description of your lesson. After you submit your changes, navigate back to the lesson view.</p>
                 <br />
-                <form onSubmit={this.editNewLesson}>
+                <form className="lessonEditForm" onSubmit={this.editNewLesson}>
                     <label>
                         Edit Lesson Name:
-                        <input type="text" value={this.state.name} onChange={(event) => { this.handleInputChange('name', event) }} />
+                        <input className="nameInput" type="text" value={this.state.name} onChange={(event) => { this.handleInputChange('name', event) }} />
                     </label>
                     <label>
                         Edit Lesson Description:
-                        <input type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
+                        <input className="descriptionInput" type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
                     </label>
-                    <input type="submit" value="Submit" />
+                    <input class="submitButton" type="submit" value="Submit" />
                 </form>
                 <br/>
                 <button className="backButton" onClick={() => this.handleBackClick()}>Back To Lessons</button>

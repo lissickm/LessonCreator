@@ -186,41 +186,41 @@ class ContentView extends Component {
                 {videoURL && <YouTube className="video" videoId={videoURL} />}
                 <br />
                 <br/>
-                {isAdmin, !videoURL, !videoDescription && <h3 onClick={this.demoClick}>Use the form below to ADD a description and url for your video.</h3>}
-                {isAdmin, videoURL, videoDescription, showEditBox && <h3>Use the form below to EDIT a description and url for your video.</h3>}
+                {isAdmin, !videoURL, !videoDescription && <p className="directions" onClick={this.demoClick}>Use the form below to add a description and url for your video.</p>}
+                {isAdmin, videoURL, videoDescription, showEditBox && <p className="directions">Use the form below to EDIT a description and url for your video.</p>}
                 
                 {/* ADD NEW FORM */}
                 {isAdmin, !videoURL, !videoDescription  && 
-                    <form onSubmit={this.addNewContent}>
+                    <form className="newContentForm" onSubmit={this.addNewContent}>
                     <label>
                         enter video description:
-                        <input type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
+                        <input className="descriptionInput" type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
                     </label>
                     <br />
                     <label>
                         enter a YouTube url:
-                        <input type="text" value={this.state.url} onChange={(event) => { this.handleInputChange('url', event) }} />
+                        <input className="descriptionInput" type="text" value={this.state.url} onChange={(event) => { this.handleInputChange('url', event) }} />
                     </label>
                     <br />
-                    <input type="submit" value="Submit" />
+                    <input class="submitButton" type="submit" value="Submit" />
                 </form>}
 
                 {isAdmin && <button className="editContent" onClick={() => this.handleEditClick(chosenLessonID)}>Edit Content Information</button>}
 
                 {/* EDIT FORM */}
                 {isAdmin, videoURL, videoDescription, showEditBox &&
-                    <form onSubmit={this.editContent}>
+                    <form className="newContentForm" onSubmit={this.editContent}>
                         <label>
                             edit video description:
-                        <input type="text" value={this.props.reduxStore.individualLesson.description} onChange={(event) => { this.handleEditInputChange('description', event) }} />
+                        <input className="descriptionInput" type="text" value={this.props.reduxStore.individualLesson.description} onChange={(event) => { this.handleEditInputChange('description', event) }} />
                         </label>
                         <br />
                         <label>
                             edit YouTube url:
-                        <input type="text" value={this.props.reduxStore.individualLesson.url} onChange={(event) => { this.handleEditInputChange('url', event) }} />
+                        <input className="descriptionInput" type="text" value={this.props.reduxStore.individualLesson.url} onChange={(event) => { this.handleEditInputChange('url', event) }} />
                         </label>
                         <br />
-                        <input type="submit" value="Submit" />
+                    <input class="submitButton" type="submit" value="Submit" />
                     </form>}
                 
                 <br/>

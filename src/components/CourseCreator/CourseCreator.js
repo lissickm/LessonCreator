@@ -34,7 +34,7 @@ class CourseCreator extends Component {
             description: '',
             creator_id: 0
         });
-        this.props.history.push('/coursesAvailable');
+        // this.props.history.push('/coursesAvailable');
     }
 
 

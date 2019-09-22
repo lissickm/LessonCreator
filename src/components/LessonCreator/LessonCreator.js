@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './LessonCreator.css';
 
 class LessonCreator extends Component {
 
@@ -32,7 +33,7 @@ class LessonCreator extends Component {
             name: '',
             description: ''
         });
-        this.props.history.push('/course');
+        // this.props.history.push('/course');
     }
 
     demoClick = () => {
@@ -51,25 +52,25 @@ class LessonCreator extends Component {
         return(
             <div>
                 <h1>Lesson Creator</h1>
-                {JSON.stringify(this.state)}
+                {/* {JSON.stringify(this.state)} */}
                 <br/>
-                <p onClick={this.demoClick}>Please enter the name of your lesson and a description of the topics covered.</p>
+                <p className="directions" onClick={this.demoClick}>Please enter the name of your lesson and a description of the topics covered. After submitting your new lesson information, you can add another lesson or navigate back to your course page.</p>
                 <br/>
-                <form onSubmit={this.addNewLesson}>
+                <form className="newLessonForm" onSubmit={this.addNewLesson}>
                     <label>
                         Lesson Name:
-                        <input type="text" value={this.state.name} onChange={(event) => { this.handleInputChange('name', event) }} />
+                        <input className="nameInput" type="text" value={this.state.name} onChange={(event) => { this.handleInputChange('name', event) }} />
                     </label>
                     <br/>
                     <label>
                         Lesson Description:
-                        <input type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
+                        <input className="descriptionInput" type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
                     </label>
                     <br/>
-                    <input type="submit" value="Submit" />
+                    <input class="submitButton" type="submit" value="Submit" />
                 </form>
                 <br/>
-                <button onClick={() => this.handleBackClick()}>Back to Lessons</button>
+                <button className="backButton" onClick={() => this.handleBackClick()}>Back to Lessons</button>
             </div>
         )
 

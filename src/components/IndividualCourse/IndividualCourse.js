@@ -97,6 +97,7 @@ class IndividualCourse extends Component {
             <div>
                     <h1 className="courseName">{courseToRender}</h1>
             </div>
+                {isAdmin === true &&<p className="directions">If you would like to add a lesson to your course, choose add a new lesson. After your first course is added, you will be able to edit, delete or navigate to the content view of your lesson.</p>}
             <div>
                 {isAdmin === true && <button className="addLesson" onClick={() => this.handleAddNewLessonClick()}>Add a New Lesson</button>}
             </div>

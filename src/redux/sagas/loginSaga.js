@@ -57,6 +57,7 @@ function* logoutUser(action) {
   } catch (error) {
     console.log('Error with user logout:', error);
   }
+  // this.props.history.push('/home');
 }
 
 function* loginSaga() {

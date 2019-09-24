@@ -32,14 +32,14 @@ class CourseCreator extends Component {
         this.setState({
             name: '',
             description: '',
-            creator_id: 1
+            creator_id: 0
         });
         // this.props.history.push('/coursesAvailable');
     }
 
     demoClick = () => {
         this.setState({
-            name: 'AP Calculus Chapter 2 Quiz Review',
+            name: 'AP Calculus Chapter 3 Quiz Review',
             description: 'The main concept in chapter 2 to master is the idea of a derivative. You need to understand how limits allow us to generate the definition of a derivative. You will also need to understand how to interpret the meaning of a derivative numerically, graphically and conceptually. Lastly, you will have to generate the derivative of numerous types of functions using the limit definition or the numerous shorthand techniques we learned in class.',
             creator_id: this.props.reduxStore.user.id
             
@@ -66,7 +66,7 @@ class CourseCreator extends Component {
                         Course Description:
                         <input className="descriptionInput" type="text" value={this.state.description} onChange={(event) => { this.handleInputChange('description', event) }} />
                     </label>
-                    <input class="submitButton" type="submit" value="Submit" />
+                    <input className="submitButton" type="submit" value="Submit" />
                 </form>
                 <br/>
                 <button className="backButton" onClick={() => this.handleBackClick()}>Back To Courses</button>

@@ -15,15 +15,16 @@ Before you get started, make sure you have the following software installed on y
 - [Nodemon](https://nodemon.io/)
 
 ## Download this project.
-npm install
-Open the database.sql file in the repo. Create a user, course, lesson and content table in Postico
-Make sure the database is connected
-npm start server
-npm run client
+- npm install
+- Open the database.sql file in the repo. Create a user, course, lesson and content table in Postico
+- Make sure the database is connected
+- npm start server
+- npm run client
 
 
 ## Creating a database
-Open the database.sql file in the repo. Create a user, course, lesson and content table in Postico.
+- Open the database.sql file in the repo. 
+- Create a user, course, lesson and content table in Postico.
 
 
 
@@ -34,14 +35,14 @@ Include one or two screen shots of your project here (optional). Remove if unuse
 [Lesson Creator Scope Document] (https://drive.google.com/file/d/1ldXjQUdw84UNp8x9_qu62nCWbfHLoppq/view?usp=sharing)
 
 ## Completed Features
-All user views operational
-Admins can add, edit, delete courses, lessons and content
-All admin views operational
-Choices can be viewed
+- All user views operational
+- Admins can add, edit, delete courses, lessons and content
+- All admin views operational
+- Choices can be viewed
 
 ## Next Steps
-Add a feature for admin to create choices
-Add a feature to create multiple paths through a lesson
+- Add a feature for admin to create choices
+- Add a feature to create multiple paths through a lesson
 
 ## Acknowledgments
 Thanks to Dane Smith, Kris Szrafranski and Mike Lissick for your help and guidance throughout this project!

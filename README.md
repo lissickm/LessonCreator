@@ -32,6 +32,8 @@ Screen Shot
 Include one or two screen shots of your project here (optional). Remove if unused.
 
 ![Course View](images2/courseView.png)
+![Lesson View](images2/lessonView.png)
+![Content View](images2/contentView.png)
 
 ## Documentation
 [Lesson Creator Scope Document] (https://drive.google.com/file/d/1ldXjQUdw84UNp8x9_qu62nCWbfHLoppq/view?usp=sharing)

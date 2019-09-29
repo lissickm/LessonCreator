@@ -31,7 +31,7 @@ Before you get started, make sure you have the following software installed on y
 Screen Shot
 Include one or two screen shots of your project here (optional). Remove if unused.
 
-![](images/Course View.png)
+![](/images/Course View.png)
 
 ## Documentation
 [Lesson Creator Scope Document] (https://drive.google.com/file/d/1ldXjQUdw84UNp8x9_qu62nCWbfHLoppq/view?usp=sharing)

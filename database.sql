@@ -3,57 +3,49 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
-CREATE TABLE "user" (
-	"id" serial NOT NULL,
-	"username" VARCHAR(80) UNIQUE NOT NULL,
-	"password" VARCHAR(1000) NOT NULL,
-	"first_name" VARCHAR(50),
-	"last_name" VARCHAR(50),
-	"administrator" BOOLEAN NOT NULL DEFAULT 'false',
-	CONSTRAINT "user_pk" PRIMARY KEY ("id")
-) WITH (
-  OIDS=FALSE
+CREATE TABLE user (
+    id SERIAL PRIMARY KEY,
+    username character varying(80) NOT NULL UNIQUE,
+    password character varying(1000) NOT NULL,
+    first_name character varying(50),
+    last_name character varying(50),
+    administrator boolean NOT NULL DEFAULT false
 );
 
+CREATE UNIQUE INDEX user_pk ON user(id int4_ops);
+CREATE UNIQUE INDEX user_username_key ON user(username text_ops);
 
 
-CREATE TABLE "course" (
-	"id" serial NOT NULL,
-	"name" VARCHAR(500) NOT NULL,
-	"description" VARCHAR(5000) NOT NULL,
-	"completed" BOOLEAN NOT NULL DEFAULT 'false',
-	"creator_id" integer NOT NULL,
-	CONSTRAINT "course_pk" PRIMARY KEY ("id")
-) WITH (
-  OIDS=FALSE
+CREATE TABLE course (
+    id SERIAL PRIMARY KEY,
+    name character varying(500) NOT NULL,
+    description character varying(5000) NOT NULL,
+    completed boolean NOT NULL DEFAULT false,
+    creator_id integer NOT NULL REFERENCES user(id)
 );
 
+CREATE UNIQUE INDEX course_pk ON course(id int4_ops);
 
 
-CREATE TABLE "lesson" (
-	"id" serial NOT NULL,
-	"name" VARCHAR(500) NOT NULL,
-	"description" VARCHAR(5000) NOT NULL,
-	"course_id" integer NOT NULL,
-	CONSTRAINT "lesson_pk" PRIMARY KEY ("id")
-) WITH (
-  OIDS=FALSE
+CREATE TABLE lesson (
+    id SERIAL PRIMARY KEY,
+    name character varying(500) NOT NULL,
+    description character varying(5000) NOT NULL,
+    course_id integer NOT NULL REFERENCES course(id) ON DELETE CASCADE
 );
 
+CREATE UNIQUE INDEX lesson_pk ON lesson(id int4_ops);
 
 
-CREATE TABLE "content" (
-	"id" serial NOT NULL,
-	"description" VARCHAR(5000) NOT NULL,
-	"url" VARCHAR(5000) NOT NULL,
-	"lesson_id" integer NOT NULL,
-	"prior_content" integer,
-	
-	CONSTRAINT "content_pk" PRIMARY KEY ("id")
-) WITH (
-  OIDS=FALSE
+CREATE TABLE content (
+    id SERIAL PRIMARY KEY,
+    description character varying(5000) NOT NULL,
+    url character varying(5000) NOT NULL,
+    lesson_id integer NOT NULL REFERENCES lesson(id) ON DELETE CASCADE,
+    prior_content integer
 );
 
+CREATE UNIQUE INDEX content_pk ON content(id int4_ops);
 
 
 

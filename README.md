@@ -1,4 +1,4 @@
-# Lesson Creator
+# LessonCreator
 LessonCreator is a course-building application for teachers. The purpose of the application is to help answer frequently asked questions that come up while viewing video content. Any administrator will be able to create video-based courses. A course will be comprised of one or more individual lessons. Each individual lesson would have multiple routes to finish it guided by the choices of the user. Learners will be able to view their available courses and track their progress through the lessons in each course.
 
 ## Technologies

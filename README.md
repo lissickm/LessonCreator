@@ -21,11 +21,6 @@ Before you get started, make sure you have the following software installed on y
 - npm start server
 - npm run client
 
-
-### Creating a database
-- Open the database.sql file in the repo. 
-- Create a user, course, lesson and content table in Postico.
-
 ### Courses Available View
 ![Course View](images2/courseView.png)
 

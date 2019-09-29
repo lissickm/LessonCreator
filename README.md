@@ -26,13 +26,13 @@ Before you get started, make sure you have the following software installed on y
 - Open the database.sql file in the repo. 
 - Create a user, course, lesson and content table in Postico.
 
-
-
-Screen Shot
-Include one or two screen shots of your project here (optional). Remove if unused.
-
+## Courses Available View
 ![Course View](images2/courseView.png)
+
+## Lesson View
 ![Lesson View](images2/lessonView.png)
+
+## Content View
 ![Content View](images2/contentView.png)
 
 ## Documentation
